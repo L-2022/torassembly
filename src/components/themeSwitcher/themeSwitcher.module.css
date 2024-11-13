@@ -1,0 +1,47 @@
+.switcher {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 24px;
+}
+
+.switcher__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background-color: transparent;
+}
+
+.switcher__button path {
+    transition: .3s all;
+    stroke: var(--primaryGrey);
+}
+
+.theme-switcher__button_active path {
+    stroke: var(--primaryWhite);
+}
+
+
+.switcher__button:hover {
+    stroke: var(--primaryWhite);
+    opacity: 1;
+}
+
+
+.theme_switcher__separator {
+    width: 2px;
+    height: 30px;
+    background-color: var(--primaryGrey);
+}
+
+@media (max-width: 800px) {
+
+    .theme-switcher__button_active path {
+        stroke: var(--themeSwitcher);
+    }
+
+    .switcher__button:hover path {
+        stroke: var(--iconColor);
+    }
+}

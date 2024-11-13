@@ -1,0 +1,188 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+:root {
+  --fontFamily: "Montserrat", serif;
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --header-height: 100px;
+  --footer-height: 80px;
+
+  --custom-green: #5ba282;
+  --primaryWhite: #FFF;
+  --primaryGrey: #656565;
+  --primaryBlack: #111;
+  --lightGrey: #CCC;
+  --darkGrey: #333;
+  --primaryButtonHoverColor: #585858;
+  --secondaryButtonColor: #EF4934;
+  --secondaryButtonHoverColor: #D43824;
+  --secondaryGrey: #E1E1E1;
+  --greyHover: #F1F1F1;
+
+
+}
+
+.light-theme {
+  --iconColor: var(--primaryBlack);
+  --bgColor: var(--primaryWhite);
+  --textColor: var(--primaryBlack);
+  --borderColor: var(--lightGrey);
+  --filterColor: var(--primaryGrey);
+  --filterBorder: var(--secondaryGrey);
+  --focusInputColor: var(--darkGrey);
+  --focusInputBackground: var(--greyHover);
+  --dropdownBackground: var(--primaryWhite);
+  --arrowDisabledColor: var(--lightGrey);
+  --borderColorCategory: var(--secondaryGrey);
+  --textColorCategory: var(--primaryGrey);
+  --backButton: var(--greyHover);
+  --backColorText: var(--darkGrey);
+  --arrowBorder: var(--greyHover);
+  --loginInput: var(--primaryGrey);
+  --themeSwitcher: var(--primaryBlack);
+}
+
+.dark-theme {
+  --iconColor: var(--primaryWhite);
+  --bgColor: var(--primaryBlack);
+  --textColor: var(--primaryWhite);
+  --borderColor: var(--darkGrey);
+  --filterColor: var(--primaryWhite);
+  --filterBorder: var(--primaryGrey);
+  --focusInputColor: var(--primaryWhite);
+  --focusInputBackground: var(--darkGrey);
+  --dropdownBackground: var(--darkGrey);
+  --arrowDisabledColor: var(--primaryGrey);
+  --borderColorCategory: var(--primaryGrey);
+  --textColorCategory: var(--primaryWhite);
+  --backButton: var(--primaryGrey);
+  --backColorText: var(--primaryWhite);
+  --arrowBorder: var(--primaryGrey);
+  --loginInput: var(--lightGrey);
+  --themeSwitcher: var(--primaryWhite);
+}
+
+body {
+  min-width: 350px;
+}
+
+p {
+  color: var(--textColor);
+  margin: 0;
+  font-weight: 400;
+  font-size: 22px;
+}
+
+h1 {
+  margin: 0;
+  line-height: 1;
+}
+
+h2 {
+  color: var(--textColor);
+  margin: 0;
+  line-height: 1;
+  font-weight: 600;
+}
+
+button {
+  border: none;
+  outline: none;
+  font-size: 1em;
+  cursor: pointer;
+  padding: 0;
+  background-color: transparent;
+}
+
+.button::after {
+  border: none;
+  outline: none;
+}
+
+.button:active {
+  border: none;
+  outline: none;
+}
+
+input {
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  padding-block: unset;
+  background-color: transparent;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 9999s ease-in-out 0s;
+  caret-color: var(--loginInput);
+  -webkit-text-fill-color: var(--loginInput) !important;
+}
+
+.bold-hover {
+  position: relative;
+  transition: .2s ease all;
+}
+
+.bold-hover::before {
+  content: attr(data-hover);
+  font-weight: 700;
+  visibility: hidden;
+}
+
+.bold-hover > span {
+  left: 0;
+  right: 0;
+  top: 0;
+  position: absolute;
+}
+
+.bold-hover:hover {
+  font-weight: 700;
+}
+
+@media (prefers-color-scheme: light) {
+
+  :root {
+    background-color: var(--primaryWhite);
+  }
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  outline: none;
+}
+
+button:focus {
+  outline: none;
+}
+
