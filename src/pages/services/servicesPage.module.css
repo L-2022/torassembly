@@ -1,51 +1,56 @@
-.servicesPage {
-    padding: 20px;
-    background-color: var(--bgColor); /* Використання bgColor для фону */
-    color: var(--textColor); /* Використання textColor для тексту */
-}
+/*.servicesPage {*/
+/*    padding: 20px;*/
+/*    text-align: center;*/
+/*}*/
 
 .servicesPage__header {
-    text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .servicesPage__title {
     font-size: 36px;
-    color: var(--textColor); /* Використання textColor для заголовка */
-}
-
-.servicesPage__description {
-    font-size: 20px;
-    color: var(--textColor); /* Використання textColor для опису */
-}
-
-.servicesPage__list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-}
-
-.service__item {
-    padding: 20px;
-    background-color: var(--bgColor); /* Використання bgColor для фону елемента послуги */
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid var(--borderColor); /* Використання borderColor для рамки */
-}
-
-.service__item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-.service__item h2 {
-    font-size: 28px;
     margin-bottom: 10px;
-    color: var(--textColor); /* Використання textColor для заголовка послуги */
 }
 
-.service__item p {
+.servicesPage__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 850px) {
+    .servicesPage__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .servicesPage__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.servicesPage__card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: transform 0.3s;
+}
+
+.servicesPage__card:hover {
+    transform: translateY(-5px);
+}
+
+.servicesPage__image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.servicesPage__text {
+    padding: 10px;
     font-size: 18px;
-    color: var(--textColor); /* Використання textColor для опису послуги */
 }
