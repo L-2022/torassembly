@@ -54,7 +54,7 @@
 
 .activeLink {
   color: var( --secondaryButtonColor);
-  text-shadow: 1px 1px 0px var( --secondaryButtonColor), -1px -1px 0px var( --secondaryButtonColor);
+  /*text-shadow: 1px 1px 0px var( --secondaryButtonColor), -1px -1px 0px var( --secondaryButtonColor);*/
 }
 
 .inactiveLink {
@@ -63,11 +63,11 @@
 
 .navList a:hover {
   color: var( --secondaryButtonColor);
-  text-shadow: 1px 1px 0px var( --secondaryButtonColor), -1px -1px 0px var( --secondaryButtonColor);
+  /*text-shadow: 1px 1px 0px var( --secondaryButtonColor), -1px -1px 0px var( --secondaryButtonColor);*/
   border: none;
 }
 
-@media (max-width: 850px) {
+@media (max-width: 767px) {
 
   .header__inner_left {
     display: flex;
@@ -102,7 +102,7 @@
   }
 }
 
-@media (max-width: 850px) {
+@media (max-width: 767px) {
   .header__inner_left {
     display: flex;
     gap: 20px;

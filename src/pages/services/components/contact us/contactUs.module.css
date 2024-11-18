@@ -1,0 +1,75 @@
+.container {
+  /* Контейнер форми */
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 24px;
+  text-transform: uppercase;
+  margin-bottom: 1px;
+}
+
+.subtitle {
+  color: #114f2e;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+.field_group {
+  position: relative;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #417257;
+  border-radius: 5px;
+}
+
+.textarea {
+  padding: 10px;
+  resize: none;
+  width: 94%;
+  height: 400px;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.actions {
+  text-align: center;
+}
+
+.button {
+  background-color: #6178cc;
+  color: #da402c;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #a94cad;
+}

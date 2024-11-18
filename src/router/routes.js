@@ -1,4 +1,4 @@
 export const routes = {
-    home: "/furniture-assembly/",
-    services: "/furniture-assembly/services"
+    home: "/furniture-assembly/about",
+    services: "/furniture-assembly/"
 };

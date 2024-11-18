@@ -1,0 +1,100 @@
+.servicesPage {
+    /*padding: 20px;*/
+    /*text-align: center;*/
+}
+
+.servicesPage__header {
+    margin-bottom: 20px;
+}
+
+.servicesPage__title {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: var(--textColor);
+}
+
+.servicesPage__grid {
+    display: grid;
+    /*grid-template-columns: repeat(3, 1fr);*/
+    gap: 20px;
+}
+
+
+.servicesPage__card {
+    border: 1px solid #5ba282;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #5ba282;
+    transition: transform 0.3s;
+}
+
+.servicesPage__card:hover {
+    transform: translateY(-5px);
+}
+/*-----------------*/
+.servicesPage__grid_active {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.servicesPage__card_active {
+    background-color: rgba(179, 245, 211, 0.64);
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+}
+
+
+
+.servicesPage__image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.servicesPage__name_service {
+    grid-column: 1 / 3; /* Перша колонка */
+    grid-row: 2 / 3; /* Другий ряд */
+    padding: 10px;
+    font-size: 18px;
+    color: var(--textColor);
+}
+
+.servicesPage__details {
+    grid-column: 2 / 3; /* Друга колонка */
+    grid-row: 1 / 3; /* Розтягується на висоту перших двох рядків */
+}
+/*//////////*/
+.servicesPage__details p {
+    margin: 5px 0;
+    color: var(--textColor);
+    font-size: 16px;
+}
+
+.servicesPage__price,
+.servicesPage__units,
+.servicesPage__description {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+
+
+
+
+
+@media (max-width: 768px) {
+    .servicesPage__grid {
+        /*grid-template-columns: repeat(2, 1fr);*/
+    }
+}
+
+@media (max-width: 480px) {
+    .servicesPage__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+

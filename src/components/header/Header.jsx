@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { ThemeSwitcher } from '../themeSwitcher/ThemeSwitcher.jsx';
-import styles from './Header.module.css';
-import headerLogo from '../../assets/tools_4851774.png';
+import headerLogo from '../../assets/tools.png';
 import { routes } from '../../router/routes';
-
+import styles from './Header.module.css';
 
 export const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,9 +13,13 @@ export const Header = () => {
     };
 
     const handleResize = () => {
-        if (window.innerWidth > 850) {
+        if (window.innerWidth > 767) {
             setIsMenuOpen(false);
         }
+    };
+
+    const handleLinkClick = () => {
+        setIsMenuOpen(false);
     };
 
     useEffect(() => {
@@ -42,8 +45,9 @@ export const Header = () => {
                             <li>
                                 <NavLink
                                         to={routes.home}
-                                        end
+                                        onClick={handleLinkClick}
                                         className={({ isActive }) => (isActive ? styles.activeLink : styles.inactiveLink)}
+
                                 >
                                     About
                                 </NavLink>
@@ -51,6 +55,8 @@ export const Header = () => {
                             <li>
                                 <NavLink
                                         to={routes.services}
+                                        end
+                                        onClick={handleLinkClick}
                                         className={({ isActive }) => (isActive ? styles.activeLink : styles.inactiveLink)}
                                 >
                                     Services

@@ -10,6 +10,7 @@ export const Layout = () => {
                     <Header />
                 <main className={styles.main_content}>
                     <Outlet />
+
                 </main>
                 <Footer />
             </div>

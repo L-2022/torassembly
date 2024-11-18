@@ -1,0 +1,39 @@
+.not_found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding: 15px;
+}
+
+.not-found__title {
+    font-size: 9rem;
+}
+
+.not_found__link {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    gap: 5px;
+    padding: 0 50px;
+    border-radius: 40px;
+    min-height: 34px;
+    box-sizing: border-box;
+    line-height: 34px;
+    transition: .2s all;
+    background-color: var(--secondaryButtonColor);
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.not_found__link:hover {
+    background-color: var(--secondaryButtonHoverColor);
+}
+
+@media (max-width: 380px) {
+
+    .not_found__title {
+        font-size: 7rem;
+    }
+}

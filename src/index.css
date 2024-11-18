@@ -16,12 +16,7 @@ ul {
 }
 
 :root {
-  --fontFamily: "Montserrat", serif;
-}
-
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  font-synthesis: none;
+  font-family: "Montserrat", serif, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -87,6 +82,15 @@ ul {
 body {
   min-width: 350px;
 }
+
+/*body {*/
+/*  min-width: 350px;*/
+/*  background-image: url('./assets/becca-tapert.jpg'); !* Шлях до вашого зображення *!*/
+/*  background-size: cover; !* Зображення буде покривати весь екран *!*/
+/*  background-repeat: no-repeat; !* Зображення не повторюється *!*/
+/*  background-position: center; !* Зображення центрується *!*/
+/*}*/
+
 
 p {
   color: var(--textColor);
@@ -169,6 +173,7 @@ input:-webkit-autofill:active {
 
   :root {
     background-color: var(--primaryWhite);
+
   }
 }
 

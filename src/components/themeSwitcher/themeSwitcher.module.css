@@ -35,13 +35,15 @@
     background-color: var(--primaryGrey);
 }
 
-@media (max-width: 800px) {
+.theme-switcher__button_active path {
+    stroke: var(--themeSwitcher);
+}
 
-    .theme-switcher__button_active path {
-        stroke: var(--themeSwitcher);
-    }
+.switcher__button:hover path {
+    stroke: var(--iconColor);
+}
 
-    .switcher__button:hover path {
-        stroke: var(--iconColor);
-    }
+@media (max-width: 768px) {
+
+
 }
