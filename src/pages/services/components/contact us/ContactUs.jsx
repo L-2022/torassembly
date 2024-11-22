@@ -6,7 +6,6 @@ export const ContactUs = () => {
             <section className={styles.container} id="contact">
                     <div className={styles.header}>
                         <h2 className={styles.title}>Contact Us</h2>
-                        {/*<h3 className={styles.subtitle}>Get free quote</h3>*/}
                     </div>
                     <form
                             className={styles.form}

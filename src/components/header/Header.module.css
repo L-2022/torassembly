@@ -3,19 +3,25 @@
   margin: 0;
   display: grid;
   align-items: center;
+  position: fixed; /* Фіксуємо хедер */
+  top: 0; /* Прив'язуємо до верхньої частини екрану */
+  left: 0;
+  width: 100%; /* Розтягуємо на всю ширину */
+  z-index: 5; /* Забезпечуємо пріоритет над іншим контентом */
+  /*background-color: var(--backgroundColor); !* Додаємо фон для чіткості *!*/
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Легке тіньове оформлення */
 }
 
 .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 5px 50px;
+  padding: 10px 50px; /* Додано більше відступу для зручності */
 }
 
 .logo {
   padding: 5px 0;
 }
-
 
 .header__inner_left {
   display: flex;
@@ -30,7 +36,6 @@
   transition: transform 0.3s ease;
   color: var(--textColor);
 }
-
 
 .burger:hover {
   color: var(--secondaryButtonColor);
@@ -53,8 +58,7 @@
 }
 
 .activeLink {
-  color: var( --secondaryButtonColor);
-  /*text-shadow: 1px 1px 0px var( --secondaryButtonColor), -1px -1px 0px var( --secondaryButtonColor);*/
+  color: var(--secondaryButtonColor);
 }
 
 .inactiveLink {
@@ -62,13 +66,10 @@
 }
 
 .navList a:hover {
-  color: var( --secondaryButtonColor);
-  /*text-shadow: 1px 1px 0px var( --secondaryButtonColor), -1px -1px 0px var( --secondaryButtonColor);*/
-  border: none;
+  color: var(--secondaryButtonColor);
 }
 
 @media (max-width: 767px) {
-
   .header__inner_left {
     display: flex;
     gap: 50px;

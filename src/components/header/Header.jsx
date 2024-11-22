@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
 import { ThemeSwitcher } from '../themeSwitcher/ThemeSwitcher.jsx';
 import headerLogo from '../../assets/tools.png';
-import { routes } from '../../router/routes';
 import styles from './Header.module.css';
 
 export const Header = () => {
@@ -18,8 +16,14 @@ export const Header = () => {
         }
     };
 
-    const handleLinkClick = () => {
+    const handleLinkClick = (id) => {
         setIsMenuOpen(false);
+
+        // Прокрутка до секції
+        const section = document.getElementById(id);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
     };
 
     useEffect(() => {
@@ -34,33 +38,47 @@ export const Header = () => {
             <header className={styles.header}>
                 <div className={styles.container}>
                     <div className={styles.header__inner_left}>
-                        <img className={styles.logo} src={headerLogo} alt="logo" width={40} height={40} />
+                        <img
+                                className={styles.logo}
+                                src={headerLogo}
+                                alt="logo"
+                                width={40}
+                                height={40}
+                        />
                         <ThemeSwitcher />
                     </div>
                     <button className={styles.burger} onClick={toggleMenu}>
                         &#9776;
                     </button>
-                    <nav className={`${styles.nav} ${isMenuOpen ? styles.open : ''}`}>
+                    <nav
+                            className={`${styles.nav} ${
+                                    isMenuOpen ? styles.open : ''
+                            }`}
+                    >
                         <ul className={styles.navList}>
                             <li>
-                                <NavLink
-                                        to={routes.home}
-                                        onClick={handleLinkClick}
-                                        className={({ isActive }) => (isActive ? styles.activeLink : styles.inactiveLink)}
-
+                                <button
+                                        className={styles.linkButton}
+                                        onClick={() => handleLinkClick('about')}
                                 >
                                     About
-                                </NavLink>
+                                </button>
                             </li>
                             <li>
-                                <NavLink
-                                        to={routes.services}
-                                        end
-                                        onClick={handleLinkClick}
-                                        className={({ isActive }) => (isActive ? styles.activeLink : styles.inactiveLink)}
+                                <button
+                                        className={styles.linkButton}
+                                        onClick={() => handleLinkClick('services')}
                                 >
                                     Services
-                                </NavLink>
+                                </button>
+                            </li>
+                            <li>
+                                <button
+                                        className={styles.linkButton}
+                                        onClick={() => handleLinkClick('contact')}
+                                >
+                                    Contact
+                                </button>
                             </li>
                         </ul>
                     </nav>
