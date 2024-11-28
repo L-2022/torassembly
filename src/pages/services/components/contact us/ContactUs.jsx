@@ -1,12 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './contactUs.module.css';
 
 export const ContactUs = ({ selectedService }) => {
     const [message, setMessage] = useState(selectedService);
 
-    // Оновлювати текст в textarea, якщо зміниться активна послуга
-    React.useEffect(() => {
-        setMessage( selectedService);
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        message: selectedService || '',
+    });
+
+    const handleInputChange = (e) => {
+        const { id, value } = e.target;
+        setFormData((prevData) => ({
+            ...prevData,
+            [id]: value,
+        }));
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const smsNumber = '+380777777777';
+
+        const smsMessage = `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nMessage: ${formData.message}`;
+
+        const smsUrl = `sms:${smsNumber}?body=${encodeURIComponent(smsMessage)}`;
+
+        window.location.href = smsUrl;
+    };
+
+    useEffect(() => {
+        setMessage(selectedService);
+        setFormData((prevData) => ({
+            ...prevData,
+            message: selectedService || '',
+        }));
     }, [selectedService]);
 
     return (
@@ -28,6 +58,7 @@ export const ContactUs = ({ selectedService }) => {
                                     type="text"
                                     placeholder="Your Name *"
                                     required
+                                    onChange={handleInputChange}
                             />
                             <p className={styles.error}></p>
                         </div>
@@ -38,6 +69,7 @@ export const ContactUs = ({ selectedService }) => {
                                     type="email"
                                     placeholder="Your Email *"
                                     required
+                                    onChange={handleInputChange}
                             />
                             <p className={styles.error}></p>
                         </div>
@@ -48,6 +80,7 @@ export const ContactUs = ({ selectedService }) => {
                                     type="tel"
                                     placeholder="Your Phone *"
                                     required
+                                    onChange={handleInputChange}
                             />
                             <p className={styles.error}></p>
                         </div>
@@ -55,8 +88,8 @@ export const ContactUs = ({ selectedService }) => {
                         <textarea
                                 className={styles.textarea}
                                 id="message"
-                                value={message}
-                                onChange={(e) => setMessage(e.target.value)}
+                                value={formData.message}
+                                onChange={handleInputChange}
                                 placeholder="Your Message *"
                                 required
                         ></textarea>
@@ -68,7 +101,8 @@ export const ContactUs = ({ selectedService }) => {
                         <button
                                 className={styles.button}
                                 id="sendMessageButton"
-                                type="submit"
+                                type="button"
+                                onClick={handleSubmit}
                         >
                             Send Message
                         </button>
