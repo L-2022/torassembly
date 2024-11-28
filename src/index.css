@@ -21,13 +21,13 @@ ul {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --header-height: 100px;
+  --header-height: 70px;
   --footer-height: 80px;
 
   --custom-green: #5ba282;
   --primaryWhite: #FFF;
   --primaryGrey: #656565;
-  --primaryBlack: #111;
+  --primaryBlack: #2c2c2c;
   --lightGrey: #CCC;
   --darkGrey: #333;
   --primaryButtonHoverColor: #585858;
@@ -80,6 +80,7 @@ ul {
 }
 
 body {
+  max-width: 1280px;
   min-width: 350px;
 }
 

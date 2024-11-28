@@ -19,12 +19,26 @@ export const Header = () => {
     const handleLinkClick = (id) => {
         setIsMenuOpen(false);
 
-        // Прокрутка до секції
         const section = document.getElementById(id);
         if (section) {
-            section.scrollIntoView({ behavior: 'smooth' });
+            // Отримання значення CSS-змінної --header-height
+            const root = document.documentElement;
+            const headerHeight = parseInt(
+                    getComputedStyle(root).getPropertyValue('--header-height'),
+                    10
+            );
+
+            const offset = -headerHeight; // Використовуємо значення змінної
+            const sectionPosition = section.getBoundingClientRect().top + window.scrollY;
+            const offsetPosition = sectionPosition + offset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth',
+            });
         }
     };
+
 
     useEffect(() => {
         window.addEventListener('resize', handleResize);
@@ -51,9 +65,7 @@ export const Header = () => {
                         &#9776;
                     </button>
                     <nav
-                            className={`${styles.nav} ${
-                                    isMenuOpen ? styles.open : ''
-                            }`}
+                            className={`${styles.nav} ${isMenuOpen ? styles.open : ''}`}
                     >
                         <ul className={styles.navList}>
                             <li>

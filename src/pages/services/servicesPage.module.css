@@ -1,124 +1,30 @@
-.servicesPage {
-    max-width: 1000px;
-    min-width: 550px;
-    display: grid;
-    justify-content: center;
+.wrapper {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 10px;
 }
 
-.servicesPage__header {
-    justify-items: center;
-    margin-bottom: 20px;
-}
 
-.servicesPage__title {
-    font-size: 36px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    color: var(--textColor);
-}
-
-.container {
-    text-align: center;
-    display: grid;
-}
-
-.services_list {
-    display: grid;
-    gap: 20px;
-}
-
-.servicesPage__card {
-    border: 1px solid #5ba282;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #5ba282;
-    transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    max-width: 550px;
-    word-wrap: break-word;
-    word-break: break-word;
-}
-
-.servicesPage__card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.servicesPage__image {
-    width: 550px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-.servicesPage__name_service {
-    padding: 10px;
-    font-size: 18px;
-    color: var(--textColor);
-}
-
-.servicesPage__details {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.3s ease;
-}
-
-.servicesPage__card.active .servicesPage__details {
-    max-height: 300px;
-}
-
-.servicesPage__details p {
-    max-width: 550px;
-    margin: 5px;
-    color: var(--textColor);
-    font-size: 16px;
-    text-align: left;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-}
-
-.servicesPage__price,
-.servicesPage__units,
-.servicesPage__description {
-    font-size: 14px;
-    font-weight: 400;
-}
-
-.contact_us {
-    padding: 25px 5px 10px;
-    background-color: transparent;
+@media (max-width: 480px) {
+    .wrapper {
+        max-width: 480px;
+    }
 }
 
 @media (min-width: 768px) {
-    .container {
-        text-align: center;
-        width: 100%;
-        display: grid;
-    }
-
-    .contact_us {
-        position: static;
-        width: 100%;
-        background-color: transparent;
-        border-radius: 10px;
-        margin-top: 20px;
-        z-index: 4;
+    .wrapper {
+        max-width: 720px;
     }
 }
 
-@media (min-width: 1400px) {
-    .contact_us {
-        position: fixed;
-        top: 120px;
-        right: 20px;
-        width: 300px;
-        /*background-color: #fff;*/
-        border: 1px solid #417257;
-        border-radius: 10px;
-        padding: 20px;
-        z-index: 4;
+@media (min-width: 1024px) {
+    .wrapper {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .wrapper {
+        max-width: 1200px;
     }
 }

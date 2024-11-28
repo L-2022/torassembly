@@ -8,7 +8,6 @@
   left: 0;
   width: 100%; /* Розтягуємо на всю ширину */
   z-index: 5; /* Забезпечуємо пріоритет над іншим контентом */
-  /*background-color: var(--backgroundColor); !* Додаємо фон для чіткості *!*/
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Легке тіньове оформлення */
 }
 
@@ -82,7 +81,7 @@
   .nav {
     display: none;
     position: absolute;
-    top: 100px;
+    top: var(--header-height);
     left: 0;
     background-color: var(--custom-green);
     width: 100%;
