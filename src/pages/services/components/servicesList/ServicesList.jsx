@@ -9,6 +9,9 @@ export const ServicesList = () => {
     const handleToggle = (id) => {
         setActiveServiceId((prevId) => (prevId === id ? null : id));
     };
+
+    const activeService =  services.find(service => service.id === activeServiceId);
+
     return (
             <section id="services" className={styles.services_wrapper}>
                 <div className={styles.header}>
@@ -53,7 +56,7 @@ export const ServicesList = () => {
                         ))}
                     </div>
                     <section id="contact" className={styles.contact_us}>
-                        <ContactUs />
+                        <ContactUs selectedService={activeService?.title || ''} />
                     </section>
                 </div>
             </section>
