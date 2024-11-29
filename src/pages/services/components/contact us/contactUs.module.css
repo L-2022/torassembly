@@ -48,7 +48,7 @@
   padding: 10px;
   resize: none;
   width: 94%;
-  height: 290px;
+  height: 150px;
 }
 
 .error {
@@ -74,4 +74,9 @@
 
 .button:hover {
   background-color: #a94cad;
+}
+.alert {
+  color: #d9534f; /* Червоний колір для привернення уваги */
+  font-weight: bold;
+  margin-top: 10px;
 }

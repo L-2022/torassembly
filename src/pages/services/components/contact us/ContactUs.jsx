@@ -22,17 +22,24 @@ export const ContactUs = ({ selectedService }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // Номер телефону для SMS
         const smsNumber = '000000001';
 
-        // Формування повідомлення для SMS
-        const smsMessage = `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nMessage: ${formData.message}`;
+        const smsMessage = `${formData.name ? `Hello, my name is ${formData.name}.` : "Hello, "} 
+            I would like to order the service "${formData.message}". 
+            ${formData.email || formData.phone ? "You can contact me via " : ""}
+            ${formData.email ? `Email: ${formData.email}` : ""} ${formData.email && formData.phone ? " or " : ""}
+            ${formData.phone ? `Phone number: ${formData.phone}.` : ""}`;
 
-        // Створення URL для схеми `sms:`
+
+        // Create URL for `sms:` scheme
         const smsUrl = `sms:${smsNumber}?body=${encodeURIComponent(smsMessage)}`;
+        if (!formData.message) {
+            alert("Enter messages")
+        } else {
+            alert(smsMessage)
+            window.location.href = smsUrl;
+        }
 
-        // Відкриття SMS-додатка
-        window.location.href = smsUrl;
     };
 
 
@@ -61,7 +68,7 @@ export const ContactUs = ({ selectedService }) => {
                                     className={styles.input}
                                     id="name"
                                     type="text"
-                                    placeholder="Your Name *"
+                                    placeholder="Your Name"
                                     required
                                     onChange={handleInputChange}
                             />
@@ -85,8 +92,13 @@ export const ContactUs = ({ selectedService }) => {
                                     type="tel"
                                     placeholder="Your Phone *"
                                     required
+                                    value={formData.phone}
                                     onChange={handleInputChange}
+                                    onInput={(e) => {
+                                        e.target.value = e.target.value.replace(/[^0-9]/g, '');
+                                    }}
                             />
+
                             <p className={styles.error}></p>
                         </div>
                         <div className={styles.field_group}>
