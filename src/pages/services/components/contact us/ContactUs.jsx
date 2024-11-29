@@ -22,14 +22,19 @@ export const ContactUs = ({ selectedService }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const smsNumber = '+380777777777';
+        // Номер телефону для SMS
+        const smsNumber = '000000001';
 
+        // Формування повідомлення для SMS
         const smsMessage = `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nMessage: ${formData.message}`;
 
+        // Створення URL для схеми `sms:`
         const smsUrl = `sms:${smsNumber}?body=${encodeURIComponent(smsMessage)}`;
 
+        // Відкриття SMS-додатка
         window.location.href = smsUrl;
     };
+
 
     useEffect(() => {
         setMessage(selectedService);
