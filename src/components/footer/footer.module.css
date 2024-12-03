@@ -1,15 +1,9 @@
-.footer {
-    background-color: var(--custom-green);
+.container {
     color: #ffffff;
     height: var(--footer-height);
     padding: 10px 0 5px;
     text-align: center;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
+    width: 100%;
 }
 
 .text {

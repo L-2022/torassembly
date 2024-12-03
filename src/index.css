@@ -10,18 +10,13 @@
   vertical-align: baseline;
 }
 
-ol,
-ul {
-  list-style: none;
-}
-
 :root {
   font-family: "Montserrat", serif, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --header-height: 70px;
+  --header-height: 80px;
   --footer-height: 80px;
 
   --custom-green: #5ba282;
@@ -79,19 +74,15 @@ ul {
   --themeSwitcher: var(--primaryWhite);
 }
 
-body {
-  max-width: 1280px;
-  min-width: 350px;
+
+html, body {
+  height: 100%;
 }
 
-/*body {*/
-/*  min-width: 350px;*/
-/*  background-image: url('./assets/becca-tapert.jpg'); !* Шлях до вашого зображення *!*/
-/*  background-size: cover; !* Зображення буде покривати весь екран *!*/
-/*  background-repeat: no-repeat; !* Зображення не повторюється *!*/
-/*  background-position: center; !* Зображення центрується *!*/
-/*}*/
-
+ol,
+ul {
+  list-style: none;
+}
 
 p {
   color: var(--textColor);

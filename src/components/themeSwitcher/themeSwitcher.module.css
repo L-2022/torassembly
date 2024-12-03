@@ -13,11 +13,6 @@
     background-color: transparent;
 }
 
-.switcher__button path {
-    transition: .3s all;
-    stroke: var(--primaryGrey);
-}
-
 .theme-switcher__button_active path {
     stroke: var(--primaryWhite);
 }
@@ -32,7 +27,10 @@
 .theme_switcher__separator {
     width: 2px;
     height: 30px;
-    background-color: var(--primaryGrey);
+    /*background-color: #2c2c2c;*/
+    background-color: var(--textColor);
+    stroke: var(--primaryWhite);
+    /*color: var(--textColor);*/
 }
 
 .theme-switcher__button_active path {
@@ -41,6 +39,10 @@
 
 .switcher__button:hover path {
     stroke: var(--iconColor);
+}
+
+.active {
+    stroke: var(--themeSwitcher);
 }
 
 @media (max-width: 768px) {

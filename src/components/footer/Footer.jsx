@@ -27,28 +27,23 @@ export const Footer = () => {
     ];
 
     return (
-            <footer className={styles.footer}>
-                <div className={styles.container}>
-
-                    <ul className={styles.socialList}>
-                        <p className={styles.text}>Follow us:</p>
+            <footer className={styles.container}>
+                <ul className={styles.socialList}>
+                    <p className={styles.text}>Follow us:</p>
                         {socialLinks.map((link) => (
-                                <li key={link.id} className={styles.socialItem}>
-                                    <a
-                                            href={link.url}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className={styles.socialLink}
-                                    >
+                            <li key={link.id} className={styles.socialItem}>
+                                <a href={link.url}
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   className={styles.socialLink}
+                                >
                                         {link.icon}
-                                    </a>
-                                </li>
-                        ))}
-                    </ul>
-                    <p className={styles.copyright}>
+                                </a>
+                            </li>))}
+                </ul>
+                <p className={styles.copyright}>
                         &copy; {new Date().getFullYear()} Your Company. All rights reserved.
                     </p>
-                </div>
             </footer>
     );
 };

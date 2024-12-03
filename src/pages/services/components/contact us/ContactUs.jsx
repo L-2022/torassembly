@@ -2,14 +2,15 @@ import React, { useState, useEffect } from 'react';
 import styles from './contactUs.module.css';
 
 export const ContactUs = ({ selectedService }) => {
-    const [message, setMessage] = useState(selectedService);
-
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         phone: '',
-        message: selectedService || '',
+        message: '',
+        selectedServices: selectedService || '',
     });
+
+    const [errorMessages, setErrorMessages] = useState(false); // Для помилок
 
     const handleInputChange = (e) => {
         const { id, value } = e.target;
@@ -17,37 +18,42 @@ export const ContactUs = ({ selectedService }) => {
             ...prevData,
             [id]: value,
         }));
+        setErrorMessages(true)
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const smsNumber = '000000001';
+        // Якщо поле повідомлення порожнє, показуємо помилку
+        if (!formData.message & !formData.selectedServices) {
+            setErrorMessages(true);
+            return;
+        }
 
-        const smsMessage = `${formData.name ? `Hello, my name is ${formData.name}.` : "Hello, "} 
+        setErrorMessages(false); // Якщо є повідомлення, помилка зникає
+
+        const smsNumber = '000000001'; // Номер для надсилання SMS
+
+        // Генерація повідомлення для SMS
+        const smsMessage = `${formData.name ? `Hello, my name is ${formData.name}.` : "Hello,"} 
             I would like to order the service "${formData.message}". 
             ${formData.email || formData.phone ? "You can contact me via " : ""}
             ${formData.email ? `Email: ${formData.email}` : ""} ${formData.email && formData.phone ? " or " : ""}
-            ${formData.phone ? `Phone number: ${formData.phone}.` : ""}`;
+            ${formData.phone ? `Phone number: ${formData.phone}.` : ""}
+            ${formData.selectedServices ? `Selected services: ${formData.selectedServices}.` : ""}
+            `;
 
-
-        // Create URL for `sms:` scheme
+        // URL для схеми `sms:`
         const smsUrl = `sms:${smsNumber}?body=${encodeURIComponent(smsMessage)}`;
-        if (!formData.message) {
-            alert("Enter messages")
-        } else {
-            alert(smsMessage)
-            window.location.href = smsUrl;
-        }
 
+        alert(smsMessage)
+        window.location.href = smsUrl;
     };
 
-
     useEffect(() => {
-        setMessage(selectedService);
         setFormData((prevData) => ({
             ...prevData,
-            message: selectedService || '',
+            selectedServices: selectedService || '',
         }));
     }, [selectedService]);
 
@@ -56,50 +62,40 @@ export const ContactUs = ({ selectedService }) => {
                 <div className={styles.header}>
                     <h2 className={styles.title}>Contact Us</h2>
                 </div>
-                <form
-                        className={styles.form}
-                        id="contactForm"
-                        name="sentMessage"
-                        noValidate="novalidate"
-                >
+                <form className={styles.form} id="contactForm" name="sentMessage" noValidate="novalidate">
                     <div className={styles.fields}>
                         <div className={styles.field_group}>
                             <input
                                     className={styles.input}
                                     id="name"
                                     type="text"
-                                    placeholder="Your Name"
-                                    required
+                                    placeholder="Your Name (optional)"
+                                    value={formData.name}
                                     onChange={handleInputChange}
                             />
-                            <p className={styles.error}></p>
                         </div>
                         <div className={styles.field_group}>
                             <input
                                     className={styles.input}
                                     id="email"
                                     type="email"
-                                    placeholder="Your Email *"
-                                    required
+                                    placeholder="Your Email (optional)"
+                                    value={formData.email}
                                     onChange={handleInputChange}
                             />
-                            <p className={styles.error}></p>
                         </div>
                         <div className={styles.field_group}>
                             <input
                                     className={styles.input}
                                     id="phone"
                                     type="tel"
-                                    placeholder="Your Phone *"
-                                    required
+                                    placeholder="Your Phone (optional)"
                                     value={formData.phone}
                                     onChange={handleInputChange}
                                     onInput={(e) => {
-                                        e.target.value = e.target.value.replace(/[^0-9]/g, '');
+                                        e.target.value = e.target.value.replace(/[^0-9]/g, ''); // тільки цифри
                                     }}
                             />
-
-                            <p className={styles.error}></p>
                         </div>
                         <div className={styles.field_group}>
                         <textarea
@@ -110,13 +106,16 @@ export const ContactUs = ({ selectedService }) => {
                                 placeholder="Your Message *"
                                 required
                         ></textarea>
-                            <p className={styles.error}></p>
+
                         </div>
                     </div>
                     <div className={styles.actions}>
-                        <div id="success"></div>
+                        {errorMessages && (
+                                <p className={styles.error_messages}>Fill out the form and select a service :-)</p>
+                        )}
                         <button
                                 className={styles.button}
+                                // className={errorMessages ? styles.button_no_active : styles.button}
                                 id="sendMessageButton"
                                 type="button"
                                 onClick={handleSubmit}
@@ -125,6 +124,7 @@ export const ContactUs = ({ selectedService }) => {
                         </button>
                     </div>
                 </form>
+
             </section>
     );
 };

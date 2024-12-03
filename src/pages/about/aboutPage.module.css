@@ -1,10 +1,8 @@
 .about_page {
-    /*margin-top: 150px;*/
-    /*padding: 20px;*/
     max-width: 1200px;
+    margin: 0 5px;
     color: var(--textColor);
     line-height: 1.6;
-    padding-top: 80px;
 }
 
 .about_page__title {
@@ -27,11 +25,4 @@
     color: var(--textColor);
     text-align: justify;
 }
-
-@media (min-width: 1400px) {
-    .about_page {
-        margin: 0 342px;
-    }
-}
-
 

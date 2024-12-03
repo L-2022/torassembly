@@ -1,21 +1,8 @@
-.header {
-  padding: 0;
-  margin: 0;
-  display: grid;
-  align-items: center;
-  position: fixed; /* Фіксуємо хедер */
-  top: 0; /* Прив'язуємо до верхньої частини екрану */
-  left: 0;
-  width: 100%; /* Розтягуємо на всю ширину */
-  z-index: 5; /* Забезпечуємо пріоритет над іншим контентом */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Легке тіньове оформлення */
-}
-
 .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 50px; /* Додано більше відступу для зручності */
+  padding: 10px 50px;
 }
 
 .logo {
@@ -27,9 +14,41 @@
   gap: 80px;
 }
 
+.header__logo {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+.logo__tor {
+  color: #EF4934;
+  font-size: 3.9rem;
+  margin: 0;
+  font-weight: bold;
+}
+
+.logo__text_wrapper {
+  display: block;
+}
+
+.logo__assembly {
+  color: var(--textColor);
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.logo__oronto {
+  font-size: 2.5rem;
+  color: #5271ff;
+  margin-top: -1rem;
+  font-family: 'Arvo', serif;
+  font-weight: 1000;
+}
+
 .burger {
   display: none;
-  font-size: 35px;
+  font-size: 3rem;
   background: none;
   cursor: pointer;
   transition: transform 0.3s ease;
@@ -49,6 +68,7 @@
   font-size: 25px;
   display: flex;
   gap: 45px;
+  color: var(--textColor);
 }
 
 .navList a {
@@ -68,7 +88,19 @@
   color: var(--secondaryButtonColor);
 }
 
+button {
+  color: var(--textColor);
+}
+
 @media (max-width: 767px) {
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2px 10px;
+  }
+
   .header__inner_left {
     display: flex;
     gap: 50px;
@@ -99,12 +131,5 @@
     align-items: center;
     justify-content: space-around;
     padding: 5px 0;
-  }
-}
-
-@media (max-width: 767px) {
-  .header__inner_left {
-    display: flex;
-    gap: 20px;
   }
 }

@@ -95,23 +95,49 @@
   overflow-wrap: break-word;
 }
 
-/*.details__description {*/
-
-/*}*/
-
 .details__wrapper {
   display: flex;
   justify-content: space-around;
 }
-
-/*.details__price,*/
-/*.details__units {*/
-/*  !*align-self: end;*!*/
-/*}*/
-
 .contact_us {
-  padding: 25px 5px 10px;
-  background-color: transparent;
+   padding: 25px 5px 10px;
+   background-color: transparent;
+ }
+
+.services__card {
+  position: relative;
+  border: 1px solid #5ba282;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #5ba282;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  max-width: 550px;
+  min-height: 250px;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.indicator {
+  position: absolute;
+  top: 10px;
+  left: 94%;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(70, 68, 68, 0.93);
+  border-radius: 50%;
+  background-color: rgba(128, 128, 128, 0.44);
+  z-index: 3;
+  transition: background-color 0.3s ease;
+}
+
+.services__card_active .indicator {
+  background-color: green;
+}
+
+.selected_services {
+
 }
 
 @media (max-width: 480px) {
@@ -126,24 +152,24 @@
   }
 
   .contact_us {
-    position: static;
-    width: 100%;
-    background-color: transparent;
     border-radius: 10px;
     margin-top: 20px;
-    z-index: 4;
   }
 }
 
-@media (min-width: 1400px) {
-  .contact_us {
-    position: fixed;
-    top: 120px;
-    right: 20px;
-    width: 300px;
-    border: 1px solid #417257;
-    border-radius: 10px;
-    padding: 20px;
-    z-index: 4;
+@media (min-width: 1200px) {
+
+  .services {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Створення двох колонок однакової ширини */
+    gap: 20px; /* Відстань між колонками, за бажанням можна змінити */
   }
+  /*.container {*/
+  /*  text-align: center;*/
+  /*  width: 100%;*/
+  /*  display: grid;*/
+  /*  grid-template-columns: repeat(2, 1fr); !* Створення двох колонок однакової ширини *!*/
+  /*  gap: 20px; !* Відстань між колонками, за бажанням можна змінити *!*/
+  /*}*/
 }
+

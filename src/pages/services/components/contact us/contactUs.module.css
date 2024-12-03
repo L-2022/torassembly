@@ -58,11 +58,26 @@
 }
 
 .actions {
-  text-align: center;
+  display: flex;
+  justify-content: flex-end;
+}
+.error_messages {
+  margin: 5px 25px;
+  color: var(--custom-green)
+}
+.button {
+  background-color: var(--custom-green);
+  color: var(--textColor);
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
 }
 
-.button {
-  background-color: #6178cc;
+.button_no_active {
+  background-color: #8189a6;
   color: #da402c;
   padding: 10px 20px;
   font-size: 16px;
@@ -73,10 +88,6 @@
 }
 
 .button:hover {
-  background-color: #a94cad;
+  background-color: #396455;
 }
-.alert {
-  color: #d9534f; /* Червоний колір для привернення уваги */
-  font-weight: bold;
-  margin-top: 10px;
-}
+

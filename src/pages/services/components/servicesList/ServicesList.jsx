@@ -1,16 +1,25 @@
-import React, { useState } from 'react';
-import { services } from '../../data/servicesData.js';
-import styles from './servicesList.module.css';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addService, removeService } from '../../../../store/services/servicesSlice.js';
+import { services } from '../../data/servicesData';
+import { SelectedService } from '../selectedService/SelectedService.jsx';
 import { ContactUs } from '../contact us/ContactUs.jsx';
+import styles from './servicesList.module.css';
 
 export const ServicesList = () => {
-    const [activeServiceId, setActiveServiceId] = useState(null);
+    const dispatch = useDispatch();
+    const selectedServices = useSelector((state) => state.selectedServices.selectedServices);
 
-    const handleToggle = (id) => {
-        setActiveServiceId((prevId) => (prevId === id ? null : id));
+    const handleToggleService = (service) => {
+        dispatch(removeService(service))
+        if (selectedServices.find((s) => s.id === service.id)) {
+            dispatch(removeService(service));
+        } else {
+            dispatch(addService(service));
+        }
     };
 
-    const activeService =  services.find(service => service.id === activeServiceId);
+    const isServiceSelected = (id) => selectedServices.some((service) => service.id === id);
 
     return (
             <section id="services" className={styles.services_wrapper}>
@@ -23,42 +32,50 @@ export const ServicesList = () => {
                                 <div
                                         key={service.id}
                                         className={`${styles.services__card} ${
-                                                activeServiceId === service.id ? styles.services__card_active : ''
+                                                isServiceSelected(service.id) ? styles.services__card_active : ''
                                         }`}
-                                        onClick={() => handleToggle(service.id)}
+                                        onClick={() => handleToggleService(service)}  // handleToggleService для картки
                                 >
+                                    <div
+                                            className={styles.indicator}
+                                            onClick={(e) => {
+                                                e.stopPropagation();  // Запобігає спрацюванню handleToggleService для картки
+                                                handleToggleService(service);  // Обробка кліку по індикатору (додавання/видалення)
+                                            }}
+                                    ></div>
                                     <img
                                             src={service.imgSrc}
                                             alt={service.title}
                                             className={`${styles.services__image} ${
-                                                    activeServiceId === service.id ? styles.services__image_active : ''
+                                                    isServiceSelected(service.id) ? styles.services__image_active : ''
                                             }`}
                                     />
-                                    <p className={styles.services__name_service}>
-                                        {service.title}
-                                    </p>
-                                    {activeServiceId === service.id && (
+                                    <p className={styles.services__name_service}>{service.title}</p>
+                                    {isServiceSelected(service.id) && (
                                             <div className={styles.services__details}>
-                                                <p className={styles.details__description}>
-                                                    {service.description}
-                                                </p>
+                                                <p className={styles.details__description}>{service.description}</p>
                                                 <div className={styles.details__wrapper}>
-                                                    <p className={styles.details__price}>
-                                                    Price: ${service.price}
-                                                    </p>
-                                                    <p className={styles.details__units}>
-                                                        Units: {service.units}
-                                                    </p></div>
-
+                                                    <p className={styles.details__price}>Price: ${service.price}</p>
+                                                    <p className={styles.details__units}>Units: {service.units}</p>
+                                                </div>
                                             </div>
                                     )}
                                 </div>
                         ))}
                     </div>
                     <section id="contact" className={styles.contact_us}>
-                        <ContactUs selectedService={activeService?.title || ''} />
+                        <ContactUs
+                                selectedService={
+                                    selectedServices.length > 0
+                                            ? selectedServices.map((service) => service.title).join(', ')
+                                            : ''
+                                }
+                        />
+                    </section>
+                    <section id="selected" className={styles.selected_services}>
+                        <SelectedService />
                     </section>
                 </div>
             </section>
-            )
-}
+    );
+};
