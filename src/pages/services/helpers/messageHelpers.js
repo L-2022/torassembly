@@ -8,10 +8,8 @@ ${formData.email ? `Email: ${formData.email}` : ""} ${formData.email && formData
 ${formData.phone ? `Phone number: ${formData.phone}.` : ""} 
 ${selectedService.length ? `Selected services: ${selectedService.map((s) => s.title).join(', ')}.` : ""}`;
 };
-
 export const phone ='7531409596:AAGqTVXDMmc_7Okns0YINdbtHxLGtrbcFXE'
 export const length = '-4721255399'
-
 export const sendSms = (smsMessage) => {
     window.location.href = `sms:000000001?body=${encodeURIComponent(smsMessage)}`;
     alert(smsMessage);

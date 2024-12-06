@@ -4,26 +4,26 @@ import { sendMessageToTelegram } from './sendMessageToTelegram.js';
 import { clearServices } from '../../../../store/services/servicesSlice.js';
 import { phone, length } from '../../helpers/messageHelpers.js';
 import styles from './contactUs.module.css';
+import Modal from '../../../../components/modal';
 
 export const ContactUs = () => {
     const selectedService = useSelector((state) => state.selectedServices.selectedServices);
     const dispatch = useDispatch();
 
     const [isMobile, setIsMobile] = useState(false);
-    useEffect(() => {
-        // Перевірка на мобільний пристрій
-        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-        setIsMobile(/android|iphone|ipad|ipod|opera mini|blackberry|webos|windows phone/i.test(userAgent.toLowerCase()));
-    }, []);
-
     const [formData, setFormData] = useState({
-        name: '',
         email: '',
         phone: '',
         message: '',
     });
+    const [errorMessages, setErrorMessages] = useState('');
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [modalMessage, setModalMessage] = useState('');
 
-    const [errorMessages, setErrorMessages] = useState(false);
+    useEffect(() => {
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        setIsMobile(/android|iphone|ipad|ipod|opera mini|blackberry|webos|windows phone/i.test(userAgent.toLowerCase()));
+    }, []);
 
     const handleInputChange = (e) => {
         const { id, value } = e.target;
@@ -31,41 +31,43 @@ export const ContactUs = () => {
             ...prevData,
             [id]: value,
         }));
-        setErrorMessages(true)
+        setErrorMessages('');
+    };
+
+    const validateEmail = (email) => {
+        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        return emailRegex.test(email);
+    };
+
+    const validatePhone = (phone) => {
+        const phoneRegex = /^\d{10,15}$/; // Мінімум 10 цифр, максимум 15
+        return phoneRegex.test(phone);
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (!formData.message.trim()) {
-            setErrorMessages(true);
-            return;
-        }
-
-        setErrorMessages(false);
-
-        if (isMobile) {
-            const smsNumber = '000000001';
-
-            const smsMessage = `${formData.name ? `Hello, my name is ${formData.name}.` : "Hello,"} 
-I would like to order the service "${formData.message}". 
-${formData.email || formData.phone ? "You can contact me via " : ""} 
-${formData.email ? `Email: ${formData.email}` : ""} ${formData.email && formData.phone ? " or " : ""} 
-${formData.phone ? `Phone number: ${formData.phone}.` : ""} 
-${selectedService.length ? `Selected services: ${selectedService.map((s) => s.title).join(', ')}.` : ""}`;
-
-            const smsUrl = `sms:${smsNumber}?body=${encodeURIComponent(smsMessage)}`;
-
-            alert(smsMessage);
-            window.location.href = smsUrl;
-        }
-
         const servicesString = selectedService.length
                 ? selectedService.map((service) => service.title).join(', ')
                 : 'None';
 
+        // Валідація email і телефону
+        if (!formData.message || (!formData.phone && !formData.email)) {
+            setErrorMessages('Fill out the form and select a service :-)');
+            return;
+        }
+
+        if (formData.email && !validateEmail(formData.email)) {
+            setErrorMessages('Invalid email address :-(');
+            return;
+        }
+
+        if (formData.phone && !validatePhone(formData.phone)) {
+            setErrorMessages('Invalid phone number :-(');
+            return;
+        }
+
         const message = `
-<b>Name:</b> ${formData.name || '-'} 
 <b>Email:</b> ${formData.email || '-'} 
 <b>Phone:</b> ${formData.phone || '-'} 
 <b>Message:</b> ${formData.message} 
@@ -73,80 +75,65 @@ ${selectedService.length ? `Selected services: ${selectedService.map((s) => s.ti
 
         try {
             await sendMessageToTelegram(message, phone, length);
-            alert('Message sent successfully!');
+            setModalMessage('Message sent successfully!');
+            setIsModalOpen(true);
 
             dispatch(clearServices());
             setFormData({
-                name: '',
                 email: '',
                 phone: '',
                 message: '',
             });
         } catch (error) {
-            alert('Failed to send message. Please try again.');
+            setModalMessage('Failed to send message. Please try again.');
+            setIsModalOpen(true);
         }
     };
 
-
     return (
-            <section className={styles.container} id="contact">
+            <div className={styles.container} id="contact">
+                <Modal
+                        isOpen={isModalOpen}
+                        onClose={() => setIsModalOpen(false)}
+                        message={modalMessage}
+                />
                 <div className={styles.header}>
-                    <h2 className={styles.title}>Contact Us</h2>
+                    <div className={styles.title}>Contact us</div>
                 </div>
-                <form className={styles.form} id="contactForm" name="sentMessage" noValidate="novalidate">
+                <form className={styles.form} id="contactForm" noValidate="novalidate">
                     <div className={styles.fields}>
-                        <div className={styles.field_group}>
-                            <input
-                                    className={styles.input}
-                                    id="name"
-                                    type="text"
-                                    placeholder="Your Name (optional)"
-                                    value={formData.name}
-                                    onChange={handleInputChange}
-                            />
-                        </div>
-                        <div className={styles.field_group}>
-                            <input
-                                    className={styles.input}
-                                    id="email"
-                                    type="email"
-                                    placeholder="Your Email (optional)"
-                                    value={formData.email}
-                                    onChange={handleInputChange}
-                            />
-                        </div>
-                        <div className={styles.field_group}>
-                            <input
-                                    className={styles.input}
-                                    id="phone"
-                                    type="tel"
-                                    placeholder="Your Phone (optional)"
-                                    value={formData.phone}
-                                    onChange={handleInputChange}
-                                    onInput={(e) => {
-                                        e.target.value = e.target.value.replace(/[^0-9]/g, ''); // тільки цифри
-                                    }}
-                            />
-                        </div>
-                        <div className={styles.field_group}>
+                        <input
+                                className={`${styles.input} ${errorMessages ? styles.input_red : ''}`}
+                                id="email"
+                                type="email"
+                                placeholder="Your Email *"
+                                value={formData.email}
+                                onChange={handleInputChange}
+                        />
+                        <input
+                                className={`${styles.input} ${errorMessages ? styles.input_red : ''}`}
+                                id="phone"
+                                type="tel"
+                                placeholder="Your Phone *"
+                                value={formData.phone}
+                                onChange={handleInputChange}
+                                onInput={(e) => {
+                                    e.target.value = e.target.value.replace(/[^0-9]/g, '');
+                                }}
+                        />
                         <textarea
-                                className={styles.textarea}
+                                className={`${styles.textarea} ${errorMessages ? styles.input_red : ''}`}
                                 id="message"
                                 value={formData.message}
                                 onChange={handleInputChange}
                                 placeholder="Your Message *"
                                 required
                         ></textarea>
-
-                        </div>
                     </div>
                     <div className={styles.actions}>
-                        {errorMessages && (
-                                <p className={styles.error_messages}>Fill out the form and select a service :-)</p>
-                        )}
+                        {errorMessages && <p className={styles.error_messages}>{errorMessages}</p>}
                         <button
                                 className={styles.button}
-                                id="sendMessageButton"
                                 type="button"
                                 onClick={handleSubmit}
                         >
@@ -154,7 +141,6 @@ ${selectedService.length ? `Selected services: ${selectedService.map((s) => s.ti
                         </button>
                     </div>
                 </form>
-
-            </section>
+            </div>
     );
 };

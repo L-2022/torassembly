@@ -25,30 +25,6 @@
   gap: 20px;
 }
 
-.services__card {
-  border: 1px solid #5ba282;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #5ba282;
-  transition: transform 0.3s, box-shadow 0.3s;
-  cursor: pointer;
-  max-width: 550px;
-  min-height: 250px;
-  word-wrap: break-word;
-  word-break: break-word;
-}
-
-.services__card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.services__card_active{
-  background-color: #702626;
-
-}
-
 .services__image {
   width: 550px;
   height: 200px;
@@ -67,12 +43,17 @@
 
 .services__name_service {
   margin: 15px;
-  font-size: 18px;
+  font-size: 25px;
   color: var(--textColor);
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.services__card_active{
+  background-color: #b02424;
+
 }
 
 .services__details {
@@ -106,12 +87,10 @@
 
 .services__card {
   position: relative;
-  /*border: 1px solid #5ba282;*/
   border: 1,5px solid var(--custom-green);
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 10px 8px rgba(0, 0, 0, 0.1);
-  /*background-color: #5ba282;*/
   background-color: var(--custom-green);
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
@@ -156,22 +135,61 @@
   .contact_us {
     border-radius: 10px;
     margin-top: 20px;
+    width: 100%;
   }
 }
 
 @media (min-width: 1200px) {
 
+  .header__title {
+    font-size: 48px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    color: var(--textColor);
+  }
+
   .services {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Створення двох колонок однакової ширини */
-    gap: 20px; /* Відстань між колонками, за бажанням можна змінити */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
-  /*.container {*/
-  /*  text-align: center;*/
-  /*  width: 100%;*/
-  /*  display: grid;*/
-  /*  grid-template-columns: repeat(2, 1fr); !* Створення двох колонок однакової ширини *!*/
-  /*  gap: 20px; !* Відстань між колонками, за бажанням можна змінити *!*/
-  /*}*/
-}
 
+  .services__card {
+    border-radius: 10px;
+    max-width: 550px;
+    min-height: 350px;
+  }
+
+  .services__image {
+    width: 550px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .services__image_active {
+    height: 150px;
+  }
+
+  .services__name_service {
+    margin: 5px;
+    font-size: 28px;
+  }
+
+  .services__details p {
+    margin: 5px;
+    color: var(--textColor);
+    font-size: 22px;
+    font-weight: 500;
+    text-align: justify;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .contact_us {
+    width: 100%;
+    display: grid;
+    justify-content: center;
+  }
+
+}

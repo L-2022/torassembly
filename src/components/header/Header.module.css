@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 50px;
+  padding: 3px 50px;
 }
 
 .logo {
@@ -90,6 +90,12 @@
 
 button {
   color: var(--textColor);
+}
+
+@media (max-width: 480px) {
+  .logo {
+    padding: 2px 0;
+  }
 }
 
 @media (max-width: 767px) {

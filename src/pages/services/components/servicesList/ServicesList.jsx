@@ -38,10 +38,6 @@ export const ServicesList = () => {
                                 >
                                     <div
                                             className={styles.indicator}
-                                            onClick={(e) => {
-                                                e.stopPropagation();  // Запобігає спрацюванню handleToggleService для картки
-                                                handleToggleService(service);  // Обробка кліку по індикатору (додавання/видалення)
-                                            }}
                                     ></div>
                                     <img
                                             src={service.imgSrc}

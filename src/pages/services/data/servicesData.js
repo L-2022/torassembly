@@ -55,14 +55,6 @@ export const services = [
         description: 'High-quality assembly of all types of furniture at your convenience.'
     },
     {
-        id: 6,
-        title: 'Furniture installation',
-        imgSrc: f,
-        price: 150,
-        units: 1,
-        description: 'Professional installation of various furniture sets with precision and care. Custom furniture design tailored to meet your style and functional needs.'
-    },
-    {
         id: 7,
         title: 'Installing lighting',
         imgSrc: u,

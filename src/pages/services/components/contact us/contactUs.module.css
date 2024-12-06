@@ -1,5 +1,5 @@
 .container {
-  /* Контейнер форми */
+  /*width: 500px;*/
 }
 
 .header {
@@ -9,7 +9,6 @@
 
 .title {
   font-size: 24px;
-  text-transform: uppercase;
   margin-bottom: 1px;
 }
 
@@ -44,6 +43,10 @@
   color: var(--textColor);
 }
 
+.input_red {
+  border: 1px solid #ce1414;
+}
+
 .textarea {
   padding: 10px;
   resize: none;
@@ -63,7 +66,7 @@
 }
 .error_messages {
   margin: 5px 25px;
-  color: var(--custom-green)
+  color: var(--textColor);
 }
 .button {
   background-color: var(--custom-green);
@@ -76,18 +79,82 @@
   cursor: pointer;
 }
 
-.button_no_active {
-  background-color: #8189a6;
-  color: #da402c;
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 5px;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-
 .button:hover {
   background-color: #396455;
 }
+
+@media (min-width: 1200px) {
+  .container {
+    width: 500px;
+  }
+
+  .header {
+    text-align: center;
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+
+  .title {
+    font-size: 48px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    color: var(--textColor);
+  }
+
+  .fields {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .field_group {
+    position: relative;
+  }
+
+  .input,
+  .textarea {
+    font-size: 22px;
+    border: 2px solid #417257;
+    color: var(--textColor);
+  }
+
+  .input_red {
+    border: 2px solid #ce1414;
+  }
+
+  .textarea {
+    padding: 10px;
+    resize: none;
+    width: 94%;
+    height: 200px;
+  }
+
+  .error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+
+  .actions {
+    display: flex;
+  }
+  .error_messages {
+    margin: 5px 10px 5px 0 ;
+    font-size: 20px;
+    color: var(--textColor);
+  }
+
+  .button {
+    background-color: var(--custom-green);
+    color: var(--textColor);
+    padding: 10px 10px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+}
+
+
 
