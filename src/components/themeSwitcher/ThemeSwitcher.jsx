@@ -32,7 +32,7 @@ export const ThemeSwitcher = () => {
         }
     };
 
-    // Використовуємо useEffect для автоматичного налаштування теми при завантаженні
+
     useEffect(() => {
         const savedTheme = localStorage.getItem('theme'); // Перевірка, чи є збережена тема
         if (savedTheme) {

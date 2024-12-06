@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeService } from '../../../../store/services/servicesSlice.js';
 import styles from './selectedService.module.css';
@@ -11,8 +11,13 @@ export const SelectedService = () => {
         dispatch(removeService(service));
     };
 
+    const totalAmount = selectedServices.reduce(
+            (total, service) => total + service.price * service.units,
+            0
+    );
+
     if (selectedServices.length === 0) {
-        return <p className={styles.noService}></p>;
+        return <p className={styles.noService}>No services selected</p>;
     }
 
     return (
@@ -24,12 +29,20 @@ export const SelectedService = () => {
                             <button
                                     className={styles.delete_service}
                                     onClick={() => handleToggleService(service)}
+                                    aria-label="Remove service"
                             >
-                                x
+
                             </button>
                             <div className={styles.service_name}>{service.title}</div>
+                            <div className={styles.service_price}>
+                                {service.price * service.units}
+                            </div>
                         </div>
                 ))}
+
+                <div className={styles.total}>
+                    Total: <span>{totalAmount}</span>
+                </div>
             </div>
     );
 };

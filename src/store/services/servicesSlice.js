@@ -1,7 +1,8 @@
+// servicesSlice.js
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    selectedServices: []
+    selectedServices: [],
 };
 
 const servicesSlice = createSlice({
@@ -13,11 +14,14 @@ const servicesSlice = createSlice({
         },
         removeService: (state, action) => {
             state.selectedServices = state.selectedServices.filter(
-                    service => service.id !== action.payload.id
+                    (service) => service.id !== action.payload.id
             );
-        }
-    }
+        },
+        clearServices: (state) => {
+            state.selectedServices = [];
+        },
+    },
 });
 
-export const { addService, removeService } = servicesSlice.actions;
+export const { addService, removeService, clearServices } = servicesSlice.actions;
 export default servicesSlice.reducer;

@@ -1,34 +1,69 @@
-/* selectedService.module.css */
 .container {
     display: flex;
-    flex-direction: column; /* Робимо вертикальне розташування */
-    gap: 20px; /* Відступ між рядками */
-
+    flex-direction: column;
+    gap: 10px;
 }
 
 .service_details {
     display: grid;
-    grid-template-columns: 40px 1fr;
-    align-items: center; /* Вирівнювання по вертикалі */
-    gap: 10px; /* Відступ між колонками */
-    padding: 2px;
+    grid-template-columns: 40px 1fr 50px;
+    align-items: center;
+    gap: 5px;
+    padding: 5px;
     border: 3px solid rgb(65, 112, 104);
     border-radius: 5px;
 }
 
 .delete_service {
-    width: 30px;
-    height: 30px;
+    background-color: transparent;
+    border: none;
+    position: relative;
+    cursor: pointer;
+}
+
+.delete_service::before,
+.delete_service::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 2px;
     background-color: #EF4934;
     border-radius: 50%;
     border: 3px solid rgba(155, 35, 35, 0.93);
-    justify-self: center; /* Центруємо по горизонталі */
+}
 
+.delete_service::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.delete_service::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.delete_service:hover::before,
+.delete_service:hover::after {
+    background-color: #ff7a66;
 }
 
 .service_name {
-    display: flex;
     font-size: 20px;
+    color: var(--textColor);
+    display: flex;
     align-items: center;
+    justify-content: left;
+}
+
+.service_price {
+    text-align: right;
+    font-size: 20px;
+    color: var(--textColor);
+}
+
+.total {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: right;
     color: var(--textColor);
 }

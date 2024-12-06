@@ -131,5 +131,7 @@ button {
     align-items: center;
     justify-content: space-around;
     padding: 5px 0;
+    font-weight: 700;
+    color: #444444;
   }
 }

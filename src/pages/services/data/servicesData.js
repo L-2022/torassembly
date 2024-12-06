@@ -1,4 +1,6 @@
-import f from '../images/f.jpg';
+// import f from '../images/f.jpg';
+// import f from '../images/IMG_20240523_150106.jpg';
+import f from '../images/IMG_20240523_154749.jpg';
 import d from '../images/design.jpg';
 import u from '../images/lighting installation.jpg';
 import c from '../images/changing lightbulb.jpg';

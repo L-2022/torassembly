@@ -106,11 +106,13 @@
 
 .services__card {
   position: relative;
-  border: 1px solid #5ba282;
+  /*border: 1px solid #5ba282;*/
+  border: 1,5px solid var(--custom-green);
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #5ba282;
+  box-shadow: 0 10px 8px rgba(0, 0, 0, 0.1);
+  /*background-color: #5ba282;*/
+  background-color: var(--custom-green);
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
   max-width: 550px;

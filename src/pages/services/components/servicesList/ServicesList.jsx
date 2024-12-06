@@ -64,13 +64,7 @@ export const ServicesList = () => {
                         ))}
                     </div>
                     <section id="contact" className={styles.contact_us}>
-                        <ContactUs
-                                selectedService={
-                                    selectedServices.length > 0
-                                            ? selectedServices.map((service) => service.title).join(', ')
-                                            : ''
-                                }
-                        />
+                        <ContactUs />
                     </section>
                     <section id="selected" className={styles.selected_services}>
                         <SelectedService />

@@ -1,16 +1,29 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { sendMessageToTelegram } from './sendMessageToTelegram.js';
+import { clearServices } from '../../../../store/services/servicesSlice.js';
+import { phone, length } from '../../helpers/messageHelpers.js';
 import styles from './contactUs.module.css';
 
-export const ContactUs = ({ selectedService }) => {
+export const ContactUs = () => {
+    const selectedService = useSelector((state) => state.selectedServices.selectedServices);
+    const dispatch = useDispatch();
+
+    const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+        // Перевірка на мобільний пристрій
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        setIsMobile(/android|iphone|ipad|ipod|opera mini|blackberry|webos|windows phone/i.test(userAgent.toLowerCase()));
+    }, []);
+
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         phone: '',
         message: '',
-        selectedServices: selectedService || '',
     });
 
-    const [errorMessages, setErrorMessages] = useState(false); // Для помилок
+    const [errorMessages, setErrorMessages] = useState(false);
 
     const handleInputChange = (e) => {
         const { id, value } = e.target;
@@ -21,41 +34,59 @@ export const ContactUs = ({ selectedService }) => {
         setErrorMessages(true)
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Якщо поле повідомлення порожнє, показуємо помилку
-        if (!formData.message & !formData.selectedServices) {
+        if (!formData.message.trim()) {
             setErrorMessages(true);
             return;
         }
 
-        setErrorMessages(false); // Якщо є повідомлення, помилка зникає
+        setErrorMessages(false);
 
-        const smsNumber = '000000001'; // Номер для надсилання SMS
+        if (isMobile) {
+            const smsNumber = '000000001';
 
-        // Генерація повідомлення для SMS
-        const smsMessage = `${formData.name ? `Hello, my name is ${formData.name}.` : "Hello,"} 
-            I would like to order the service "${formData.message}". 
-            ${formData.email || formData.phone ? "You can contact me via " : ""}
-            ${formData.email ? `Email: ${formData.email}` : ""} ${formData.email && formData.phone ? " or " : ""}
-            ${formData.phone ? `Phone number: ${formData.phone}.` : ""}
-            ${formData.selectedServices ? `Selected services: ${formData.selectedServices}.` : ""}
-            `;
+            const smsMessage = `${formData.name ? `Hello, my name is ${formData.name}.` : "Hello,"} 
+I would like to order the service "${formData.message}". 
+${formData.email || formData.phone ? "You can contact me via " : ""} 
+${formData.email ? `Email: ${formData.email}` : ""} ${formData.email && formData.phone ? " or " : ""} 
+${formData.phone ? `Phone number: ${formData.phone}.` : ""} 
+${selectedService.length ? `Selected services: ${selectedService.map((s) => s.title).join(', ')}.` : ""}`;
 
-        // URL для схеми `sms:`
-        const smsUrl = `sms:${smsNumber}?body=${encodeURIComponent(smsMessage)}`;
+            const smsUrl = `sms:${smsNumber}?body=${encodeURIComponent(smsMessage)}`;
 
-        alert(smsMessage)
-        window.location.href = smsUrl;
+            alert(smsMessage);
+            window.location.href = smsUrl;
+        }
+
+        const servicesString = selectedService.length
+                ? selectedService.map((service) => service.title).join(', ')
+                : 'None';
+
+        const message = `
+<b>Name:</b> ${formData.name || '-'} 
+<b>Email:</b> ${formData.email || '-'} 
+<b>Phone:</b> ${formData.phone || '-'} 
+<b>Message:</b> ${formData.message} 
+<b>Selected services:</b> ${servicesString}`;
+
+        try {
+            await sendMessageToTelegram(message, phone, length);
+            alert('Message sent successfully!');
+
+            dispatch(clearServices());
+            setFormData({
+                name: '',
+                email: '',
+                phone: '',
+                message: '',
+            });
+        } catch (error) {
+            alert('Failed to send message. Please try again.');
+        }
     };
 
-    useEffect(() => {
-        setFormData((prevData) => ({
-            ...prevData,
-            selectedServices: selectedService || '',
-        }));
-    }, [selectedService]);
 
     return (
             <section className={styles.container} id="contact">
@@ -115,7 +146,6 @@ export const ContactUs = ({ selectedService }) => {
                         )}
                         <button
                                 className={styles.button}
-                                // className={errorMessages ? styles.button_no_active : styles.button}
                                 id="sendMessageButton"
                                 type="button"
                                 onClick={handleSubmit}
