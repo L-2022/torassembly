@@ -2,12 +2,12 @@ import React from 'react';
 import styles from './footer.module.css';
 import { FaInstagram, FaWhatsapp, FaViber, FaTelegram } from 'react-icons/fa';
 
-export const Footer = () => {
+const Footer = () => {
     const socialLinks = [
         {
             id: 'instagram',
             icon: <FaInstagram />,
-            url: 'https://www.instagram.com',
+            url: 'https://www.instagram.com/torassembly?igsh=MTZtbnU2cms2ODFhNQ==',
         },
         {
             id: 'whatsapp',
@@ -15,14 +15,9 @@ export const Footer = () => {
             url: 'https://www.whatsapp.com',
         },
         {
-            id: 'viber',
-            icon: <FaViber />,
-            url: 'https://www.viber.com',
-        },
-        {
             id: 'telegram',
             icon: <FaTelegram />,
-            url: 'https://telegram.org',
+            url: 'https://t.me/TORassembly',
         },
     ];
 
@@ -47,3 +42,5 @@ export const Footer = () => {
             </footer>
     );
 };
+
+export default Footer;

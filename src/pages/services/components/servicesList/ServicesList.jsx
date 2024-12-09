@@ -2,11 +2,11 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addService, removeService } from '../../../../store/services/servicesSlice.js';
 import { services } from '../../data/servicesData';
-import { SelectedService } from '../selectedService/SelectedService.jsx';
-import { ContactUs } from '../contact us/ContactUs.jsx';
+import SelectedService from '../selectedService/SelectedService.jsx';
+import ContactUs from '../contact us/ContactUs.jsx';
 import styles from './servicesList.module.css';
 
-export const ServicesList = () => {
+const ServicesList = () => {
     const dispatch = useDispatch();
     const selectedServices = useSelector((state) => state.selectedServices.selectedServices);
 
@@ -69,3 +69,5 @@ export const ServicesList = () => {
             </section>
     );
 };
+
+export default ServicesList;

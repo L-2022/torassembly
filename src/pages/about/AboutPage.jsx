@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './aboutPage.module.css';
 
-export const AboutPage = () => {
+const AboutPage = () => {
     return (
             <section id="about" className={styles.about_page}>
                 <h1 className={styles.about_page__title}>About</h1>
@@ -12,3 +12,5 @@ export const AboutPage = () => {
             </section>
     );
 };
+
+export default AboutPage;

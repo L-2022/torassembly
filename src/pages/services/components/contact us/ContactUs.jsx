@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { sendMessageToTelegram } from './sendMessageToTelegram.js';
+import { sendMessage } from './sendMessage.js';
 import { clearServices } from '../../../../store/services/servicesSlice.js';
-import { phone, length } from '../../helpers/messageHelpers.js';
 import styles from './contactUs.module.css';
 import Modal from '../../../../components/modal';
 
-export const ContactUs = () => {
+const ContactUs = () => {
     const selectedService = useSelector((state) => state.selectedServices.selectedServices);
     const dispatch = useDispatch();
 
@@ -40,7 +39,7 @@ export const ContactUs = () => {
     };
 
     const validatePhone = (phone) => {
-        const phoneRegex = /^\d{10,15}$/; // Мінімум 10 цифр, максимум 15
+        const phoneRegex = /^\d{10,15}$/;
         return phoneRegex.test(phone);
     };
 
@@ -51,7 +50,6 @@ export const ContactUs = () => {
                 ? selectedService.map((service) => service.title).join(', ')
                 : 'None';
 
-        // Валідація email і телефону
         if (!formData.message || (!formData.phone && !formData.email)) {
             setErrorMessages('Fill out the form and select a service :-)');
             return;
@@ -67,6 +65,13 @@ export const ContactUs = () => {
             return;
         }
 
+        if (isMobile) {
+            const smsNumber = '000000001';
+            const smsMessage = `Selected services: ${servicesString}
+${formData.email || formData.phone ? "You can contact me via " : ""}${formData.email ? `Email: ${formData.email}` : ""}${formData.email && formData.phone ? " or " : ""}${formData.phone ? `Phone number: ${formData.phone}` : ""}`;
+            window.location.href = `sms:${smsNumber}?body=${encodeURIComponent(smsMessage)}`;
+        }
+
         const message = `
 <b>Email:</b> ${formData.email || '-'} 
 <b>Phone:</b> ${formData.phone || '-'} 
@@ -74,7 +79,7 @@ export const ContactUs = () => {
 <b>Selected services:</b> ${servicesString}`;
 
         try {
-            await sendMessageToTelegram(message, phone, length);
+            await sendMessage(message, import.meta.env.VITE_APP_TOKEN , import.meta.env.VITE_APP_ID);
             setModalMessage('Message sent successfully!');
             setIsModalOpen(true);
 
@@ -144,3 +149,5 @@ export const ContactUs = () => {
             </div>
     );
 };
+
+export default ContactUs;

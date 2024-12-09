@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { removeService } from '../../../../store/services/servicesSlice.js';
 import styles from './selectedService.module.css';
 
-export const SelectedService = () => {
+const SelectedService = () => {
     const dispatch = useDispatch();
     const selectedServices = useSelector((state) => state.selectedServices.selectedServices);
 
@@ -46,3 +46,5 @@ export const SelectedService = () => {
             </div>
     );
 };
+
+export default SelectedService;

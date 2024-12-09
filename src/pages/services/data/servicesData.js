@@ -55,7 +55,7 @@ export const services = [
         description: 'High-quality assembly of all types of furniture at your convenience.'
     },
     {
-        id: 7,
+        id: 6,
         title: 'Installing lighting',
         imgSrc: u,
         price: 80,
@@ -63,7 +63,7 @@ export const services = [
         description: 'Expert installation of indoor and outdoor lighting for any space.'
     },
     {
-        id: 8,
+        id: 7,
         title: 'Changing lamps',
         imgSrc: c,
         price: 50,
@@ -71,7 +71,7 @@ export const services = [
         description: 'Quick and safe replacement of light bulbs for residential and commercial properties.'
     },
     {
-        id: 9,
+        id: 8,
         title: 'Preparation for Halloween',
         imgSrc: h,
         price: 120,

@@ -3,15 +3,14 @@ import { SunIcon } from '../icons/SunIcon.jsx';
 import { MoonIcon } from '../icons/MoonIcon.jsx';
 import styles from './themeSwitcher.module.css';
 
-export const ThemeSwitcher = () => {
+const ThemeSwitcher = () => {
     const [theme, setTheme] = useState('light');
 
-    // Функція для встановлення світлої теми
     const setLightTheme = () => {
         setTheme('light');
         document.documentElement.classList.remove('dark-theme');
         document.documentElement.classList.add('light-theme');
-        localStorage.setItem('theme', 'light'); // Збереження вибору в локальному сховищі
+        localStorage.setItem('theme', 'light');
     };
 
     // Функція для встановлення темної теми
@@ -19,22 +18,21 @@ export const ThemeSwitcher = () => {
         setTheme('dark');
         document.documentElement.classList.remove('light-theme');
         document.documentElement.classList.add('dark-theme');
-        localStorage.setItem('theme', 'dark'); // Збереження вибору в локальному сховищі
+        localStorage.setItem('theme', 'dark');
     };
 
-    // Виконання логіки для автоматичної зміни теми залежно від часу
     const setAutomaticTheme = () => {
         const currentHour = new Date().getHours();
         if (currentHour >= 7 && currentHour < 19) {
-            setLightTheme(); // Встановлюємо світлу тему з 7 до 19 години
+            setLightTheme();
         } else {
-            setDarkTheme(); // Встановлюємо темну тему з 19 до 7 години
+            setDarkTheme();
         }
     };
 
 
     useEffect(() => {
-        const savedTheme = localStorage.getItem('theme'); // Перевірка, чи є збережена тема
+        const savedTheme = localStorage.getItem('theme');
         if (savedTheme) {
             setTheme(savedTheme);
             if (savedTheme === 'dark') {
@@ -43,7 +41,7 @@ export const ThemeSwitcher = () => {
                 document.documentElement.classList.add('light-theme');
             }
         } else {
-            setAutomaticTheme(); // Якщо теми не збережено, визначаємо її залежно від часу
+            setAutomaticTheme();
         }
     }, []);
 
@@ -65,3 +63,5 @@ export const ThemeSwitcher = () => {
             </div>
     );
 };
+
+export default ThemeSwitcher;

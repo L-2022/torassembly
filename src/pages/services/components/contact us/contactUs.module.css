@@ -1,5 +1,4 @@
 .container {
-  /*width: 500px;*/
 }
 
 .header {
@@ -10,6 +9,7 @@
 .title {
   font-size: 24px;
   margin-bottom: 1px;
+  color: var(--textColor);
 }
 
 .subtitle {
@@ -41,6 +41,7 @@
   border-radius: 5px;
   background-color: transparent;
   color: var(--textColor);
+  box-sizing: border-box;
 }
 
 .input_red {
@@ -50,8 +51,8 @@
 .textarea {
   padding: 10px;
   resize: none;
-  width: 94%;
   height: 150px;
+  box-sizing: border-box;
 }
 
 .error {
@@ -115,7 +116,6 @@
   .textarea {
     font-size: 22px;
     border: 2px solid #417257;
-    color: var(--textColor);
   }
 
   .input_red {
@@ -125,7 +125,6 @@
   .textarea {
     padding: 10px;
     resize: none;
-    width: 94%;
     height: 200px;
   }
 
@@ -138,6 +137,7 @@
   .actions {
     display: flex;
   }
+
   .error_messages {
     margin: 5px 10px 5px 0 ;
     font-size: 20px;

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { ThemeSwitcher } from '../themeSwitcher/ThemeSwitcher.jsx';
+import ThemeSwitcher from '../themeSwitcher';
 import styles from './Header.module.css';
 
-export const Header = () => {
+const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const toggleMenu = () => {
@@ -100,3 +100,5 @@ export const Header = () => {
             </header>
     );
 };
+
+export default Header;

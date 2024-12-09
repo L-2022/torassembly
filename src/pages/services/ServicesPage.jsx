@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './servicesPage.module.css';
-import { AboutPage } from '../about/AboutPage.jsx';
-import { ServicesList } from './components/servicesList/ServicesList.jsx';
+import AboutPage from '../about/AboutPage.jsx';
+import ServicesList from './components/servicesList';
 
-export const ServicesPage = () => {
+const ServicesPage = () => {
 
     return (
             <div className={styles.wrapper}>
@@ -12,3 +12,5 @@ export const ServicesPage = () => {
             </div>
     );
 };
+
+export default ServicesPage;

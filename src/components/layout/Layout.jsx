@@ -1,10 +1,10 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import {Header} from '../header/Header';
-import {Footer} from '../footer/Footer';
+import Header from '../header';
+import Footer from '../footer/';
 import styles from './layout.module.css';
 
-export const Layout = () => {
+const Layout = () => {
     return (
             <div className={styles.layout} >
                 <Header />
@@ -15,3 +15,5 @@ export const Layout = () => {
             </div>
     );
 };
+
+export default Layout;
