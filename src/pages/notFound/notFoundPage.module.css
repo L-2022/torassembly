@@ -18,7 +18,7 @@
 .not_found__button {
     margin-top: 10px;
     padding: 10px 20px;
-    background-color: var(--custom-green);
+    background-color: var(--mainbg);
     color: var(--textColor);
     border: none;
     border-radius: 5px;

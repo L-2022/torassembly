@@ -1,42 +1,35 @@
-// import f from '../images/f.jpg';
-// import f from '../images/IMG_20240523_150106.jpg';
-import f from '../images/IMG_20240523_154749.jpg';
-import d from '../images/design.jpg';
-import u from '../images/lighting installation.jpg';
-import c from '../images/changing lightbulb.jpg';
-import h from '../images/halloween.jpg';
-import w from '../images/creating_single_page_sites.jpg';
-import s from '../images/Serve.jpg';
-import p from '../images/creating_single_page_sites.jpg';
+import furniture from '../images/sofa.png';
+import lighting from '../images/lighting.jpg';
+import lamps from '../images/changing lightbulb.jpg';
+import halloween from '../images/halloween.jpg';
 import sw from '../images/design.jpg';
-
-
-
+import chair from '../images/Sofa and office chair .png';
+import beds_img from '../images/IMG_20240902_103843.jpg';
 
 export const services = [
     {
         id: 1,
-        title: 'Single-page website development',
-        imgSrc: w,
-        price: 300,
+        title: 'Assembly of furniture',
+        imgSrc: furniture,
+        price: 100,
         units: 1,
-        description: 'Professional development of single-page applications using modern technologies like React, Node.js, Express, and MongoDB or PostgreSQL.'
+        description: 'High-quality assembly of all types of furniture, including office chairs and computer furniture, at your convenience.'
     },
     {
         id: 2,
-        title: 'Server creation on JavaScript or Python',
-        imgSrc: s,
-        price: 400,
+        title: 'Installing lighting',
+        imgSrc: lighting,
+        price: 80,
         units: 1,
-        description: 'Custom server development using Node.js, Express, MongoDB, and PostgreSQL to meet your specific requirements.'
+        description: 'Expert installation of both indoor and outdoor lighting solutions for any space, ensuring a perfect ambiance.'
     },
     {
         id: 3,
-        title: 'PLC software development (Siemens S7, TIA Portal)',
-        imgSrc: p,
-        price: 500,
+        title: 'Changing lamps',
+        imgSrc: lamps,
+        price: 50,
         units: 1,
-        description: 'Development of software for Siemens PLCs across all generations of the SIMATIC family using TIA Portal and related tools.'
+        description: 'Quick and safe lamp replacement for both residential and commercial properties, providing optimal lighting with minimal hassle.'
     },
     {
         id: 4,
@@ -44,39 +37,31 @@ export const services = [
         imgSrc: sw,
         price: 250,
         units: 1,
-        description: 'Expert furniture design services using SolidWorks for accurate and detailed 3D modeling.'
+        description: 'Professional furniture design services using SolidWorks, specializing in 3D modeling to ensure precise and functional furniture design.'
     },
     {
         id: 5,
-        title: 'Assembly of furniture',
-        imgSrc: f,
-        price: 100,
+        title: 'Preparation for Halloween',
+        imgSrc: halloween,
+        price: 120,
         units: 1,
-        description: 'High-quality assembly of all types of furniture at your convenience.'
+        description: 'Get your space ready for Halloween with unique decoration services, adding a festive touch to your holiday setup.'
     },
     {
         id: 6,
-        title: 'Installing lighting',
-        imgSrc: u,
-        price: 80,
+        title: 'Office chair and bar stool assembly',
+        imgSrc: chair,
+        price: 90,
         units: 1,
-        description: 'Expert installation of indoor and outdoor lighting for any space.'
-    },
-    {
-        id: 7,
-        title: 'Changing lamps',
-        imgSrc: c,
-        price: 50,
-        units: 1,
-        description: 'Quick and safe replacement of light bulbs for residential and commercial properties.'
+        description: 'Professional assembly services for office chairs, computer chairs, and bar stools, ensuring comfort and stability.'
     },
     {
         id: 8,
-        title: 'Preparation for Halloween',
-        imgSrc: h,
-        price: 120,
+        title: 'Assembly of beds of various complexities',
+        imgSrc: beds_img,
+        price: 200,
         units: 1,
-        description: 'Get your space ready for Halloween with our unique decoration services.'
+        description: 'Professional assembly of beds of various complexities, ensuring stability, comfort, and functionality for every type of bed.'
     }
-];
 
+];

@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './servicesPage.module.css';
-import AboutPage from '../about/AboutPage.jsx';
+import AboutPage from './components/about';
 import ServicesList from './components/servicesList';
 
 const ServicesPage = () => {

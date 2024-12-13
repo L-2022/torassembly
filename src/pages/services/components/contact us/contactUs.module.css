@@ -70,7 +70,7 @@
   color: var(--textColor);
 }
 .button {
-  background-color: var(--custom-green);
+  background-color: var(--mainbg);
   color: var(--textColor);
   padding: 10px 20px;
   font-size: 16px;
@@ -145,14 +145,8 @@
   }
 
   .button {
-    background-color: var(--custom-green);
-    color: var(--textColor);
-    padding: 10px 10px;
-    font-size: 18px;
     border: none;
     border-radius: 5px;
-    text-transform: uppercase;
-    cursor: pointer;
   }
 }
 

@@ -1,5 +1,5 @@
 export const routes = {
-    about: "/furniture-assembly/about",
-    services: "/furniture-assembly/",
+    about: "/development",
+    services: "/",
     notFound: '*',
 };

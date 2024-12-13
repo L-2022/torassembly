@@ -15,7 +15,7 @@ header {
     z-index: 5;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     height: var(--header-height);
-    background-color: var(--custom-green);
+    background-color: var(--mainbg);
 }
 
 
@@ -27,5 +27,5 @@ main {
 
 footer {
     height: calc(20px + var(--footer-height));
-    background-color: var(--custom-green);
+    background-color: var(--mainbg);
 }

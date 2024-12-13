@@ -87,11 +87,11 @@
 
 .services__card {
   position: relative;
-  border: 1,5px solid var(--custom-green);
+  border: 1,5px solid var(--mainbg);
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 10px 8px rgba(0, 0, 0, 0.1);
-  background-color: var(--custom-green);
+  background-color: var(--mainbg);
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
   max-width: 550px;

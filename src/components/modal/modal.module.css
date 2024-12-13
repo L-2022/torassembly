@@ -13,10 +13,10 @@
 }
 
 .modal {
-    background: var(--custom-green);
+    background: var(--mainbg);
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 10px 10px #5C7BADF4;
+    box-shadow: 0 10px 10px var(--mainbg);
     text-align: center;
 
 }

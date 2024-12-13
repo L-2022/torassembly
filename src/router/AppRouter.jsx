@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import AboutPage from '../pages/about';
 import ServicesPage from '../pages/services';
+import DevelopmentPage from '../pages/development';
 import NotFoundPage from '../pages/notFound';
 import Layout from '../components/layout';
 import { routes } from './routes';
@@ -15,7 +15,7 @@ const AppRouter = () => {
                 <Routes>
                     <Route element={<Layout />}>
                         <Route path={routes.services} element={<ServicesPage />} />
-                        <Route path={routes.about} element={<AboutPage />} />
+                        <Route path={routes.about} element={<DevelopmentPage />} /> {/*//it will be in future :-)*/}
                         <Route path="*" element={<NotFoundPage />} />
                     </Route>
                 </Routes>
