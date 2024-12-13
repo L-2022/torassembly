@@ -1,5 +1,5 @@
 export const routes = {
-    about: "/development",
-    services: "/",
+    about: "/torassembly/development",
+    services: "/torassembly/",
     notFound: '*',
 };
