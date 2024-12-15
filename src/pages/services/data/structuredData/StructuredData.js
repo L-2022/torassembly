@@ -1,4 +1,6 @@
-export const servicesSchema = (services) => ({
+import { services } from '../servicesData.js';
+
+export const servicesSchema = () => ({
     "@context": "https://schema.org",
     "@type": "ItemList",
     itemListElement: services.map((service, index) => ({
@@ -10,14 +12,10 @@ export const servicesSchema = (services) => ({
             image: service.imgSrc,
             description: service.description,
             offers: {
-                "@type": "Offer",
-                price: service.price,
-                priceCurrency: "USD",
-                itemOffered: {
-                    "@type": "Product",
-                    name: service.title,
-                    description: service.description,
-                },
+                "@type": "AggregateOffer",
+                priceCurrency: "CAD",
+                lowPrice: service.lowPrice,
+                highPrice: service.highPrice,
             },
         },
     })),

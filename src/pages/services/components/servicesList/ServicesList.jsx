@@ -23,7 +23,7 @@ const ServicesList = () => {
 
     const isServiceSelected = (id) => selectedServices.some((service) => service.id === id);
 
-    const schemaData = servicesSchema(services); // Створення JSON-LD для Schema.org
+    const schemaData = servicesSchema(services); // created JSON-LD for Schema.org
 
     return (
             <HelmetProvider>
