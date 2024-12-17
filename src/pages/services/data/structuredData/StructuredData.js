@@ -12,11 +12,16 @@ export const servicesSchema = () => ({
             image: service.imgSrc,
             description: service.description,
             offers: {
-                "@type": "AggregateOffer",
+                "@type": "Offer",
                 priceCurrency: "CAD",
-                lowPrice: service.lowPrice,
-                highPrice: service.highPrice,
+                price: service.price,
+                url: "https://torassembly.ca/"
             },
+            aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: "0",
+                reviewCount: "0",
+            }
         },
     })),
 });

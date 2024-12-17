@@ -1,5 +1,4 @@
 export const routes = {
-    about: "/development",
-    services: "",
+    services: "/",
     notFound: '*',
 };
