@@ -11,13 +11,8 @@ const SelectedService = () => {
         dispatch(removeService(service));
     };
 
-    // const totalAmount = selectedServices.reduce(
-    //         (total, service) => total + service.price * service.units,
-    //         0
-    // );
-
     if (selectedServices.length === 0) {
-        return <p className={styles.title}>No services selected</p>;
+        return <p className={styles.title}></p>;
     }
 
     return (
@@ -34,15 +29,8 @@ const SelectedService = () => {
 
                             </button>
                             <div className={styles.service_name}>{service.title}</div>
-                            {/*<div className={styles.service_price}>*/}
-                            {/*    {service.price * service.units}*/}
-                            {/*</div>*/}
                         </div>
                 ))}
-
-                {/*<div className={styles.total}>*/}
-                {/*    Total: <span>{totalAmount}</span>*/}
-                {/*</div>*/}
             </div>
     );
 };
