@@ -6,23 +6,52 @@
     justify-content: center;
 }
 
-
-@media (max-width: 1200px) {
-    .wrapper {
-        margin: 0 40px;
-    }
+.services_wrapper {
+    display: grid;
+    justify-content: center;
+    padding-bottom: 25px;
 }
 
-@media (max-width: 765px) {
-    .wrapper {
-        margin: 0 20px;
-    }
+.contact_us {
+    padding: 25px 5px 10px;
+    background-color: transparent;
 }
+
+.selected_services {
+    padding: 25px 5px 10px;
+    background-color: transparent;
+}
+
 
 @media (max-width: 480px) {
     .wrapper {
         margin: 0 5px;
     }
+}
+
+@media (min-width: 768px) {
+    .wrapper {
+        margin: 0 20px;
+    }
+
+    .contact_us {
+        border-radius: 10px;
+        margin-top: 20px;
+        width: 100%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .wrapper {
+        margin: 0 40px;
+    }
+
+    .contact_us {
+        width: 100%;
+        display: grid;
+        justify-content: center;
+    }
+
 }
 
 

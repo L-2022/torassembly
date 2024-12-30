@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { sendMessage } from './sendMessage.js';
 import { clearServices } from '../../../../store/services/servicesSlice.js';
-import styles from './contactUs.module.css';
 import Modal from '../../../../components/modal';
+import styles from './contactUs.module.css';
 
 const ContactUs = () => {
     const selectedService = useSelector((state) => state.selectedServices.selectedServices);

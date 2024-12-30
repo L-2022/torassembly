@@ -20,14 +20,13 @@ const Header = () => {
 
         const section = document.getElementById(id);
         if (section) {
-            // Отримання значення CSS-змінної --header-height
             const root = document.documentElement;
             const headerHeight = parseInt(
                     getComputedStyle(root).getPropertyValue('--header-height'),
                     10
             );
 
-            const offset = -headerHeight; // Використовуємо значення змінної
+            const offset = -headerHeight;
             const sectionPosition = section.getBoundingClientRect().top + window.scrollY;
             const offsetPosition = sectionPosition + offset;
 

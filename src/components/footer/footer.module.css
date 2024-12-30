@@ -42,3 +42,19 @@
     font-size: 15px;
     color: #aaaaaa;
 }
+
+
+
+@media (max-width: 480px) {
+    .copyright {
+        font-size: 10px;
+    }
+}
+
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 1200px) {
+
+}

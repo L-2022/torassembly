@@ -17,12 +17,12 @@ const SelectedService = () => {
     // );
 
     if (selectedServices.length === 0) {
-        return <p className={styles.noService}>No services selected</p>;
+        return <p className={styles.title}>No services selected</p>;
     }
 
     return (
             <div className={styles.container}>
-                <h2 className={styles.title}>Selected Services:</h2>
+                <div className={styles.title}>Selected Services:</div>
                 {selectedServices.map((service) => (
                         <div key={service.id} className={styles.service_details}>
 

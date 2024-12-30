@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './footer.module.css';
-import { FaInstagram, FaWhatsapp, FaViber, FaTelegram } from 'react-icons/fa';
+import { FaInstagram, FaWhatsapp, FaEmber, FaTelegram } from 'react-icons/fa';
 
 const Footer = () => {
     const socialLinks = [

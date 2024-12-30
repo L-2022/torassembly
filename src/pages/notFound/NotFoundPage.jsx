@@ -6,7 +6,7 @@ const NotFoundPage = () => {
     const navigate = useNavigate();
 
     const handleGoHome = () => {
-        navigate('/furniture-assembly');
+        navigate('/');
     };
 
     return (

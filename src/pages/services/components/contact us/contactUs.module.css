@@ -65,10 +65,12 @@
   display: flex;
   justify-content: flex-end;
 }
+
 .error_messages {
   margin: 5px 25px;
   color: var(--textColor);
 }
+
 .button {
   background-color: var(--mainbg);
   color: var(--textColor);
@@ -149,6 +151,9 @@
     border-radius: 5px;
   }
 }
+
+
+
 
 
 

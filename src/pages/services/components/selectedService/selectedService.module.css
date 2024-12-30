@@ -67,3 +67,34 @@
     text-align: right;
     color: var(--textColor);
 }
+
+.title {
+    text-align: center;
+    color: var(--textColor);
+}
+
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+}
+
+@media (min-width: 768px) {
+    .title {
+        font-size: 24px;
+        margin-bottom: 1px;
+    }
+
+}
+
+@media (min-width: 1200px) {
+    .title {
+        font-size: 48px;
+        margin-bottom: 20px;
+    }
+
+
+}

@@ -2,9 +2,10 @@ import furniture from '../images/sofa.png';
 import lighting from '../images/lighting.jpg';
 import lamps from '../images/changing lightbulb.jpg';
 import halloween from '../images/halloween.jpg';
-import sw from '../images/design.jpg';
+import sw from '../images/modern_workspace.jpg';
 import chair from '../images/Sofa and office chair .png';
 import beds_img from '../images/IMG_20240902_103843.jpg';
+import repair from '../images/furniture_repair.jpg';
 
 export const services = [
     {
@@ -68,8 +69,8 @@ export const services = [
         description: 'Get your space ready for Halloween with unique decoration services, adding a festive touch to your holiday setup.'
     },
     {
-        id: 4,
-        title: 'Furniture design in SolidWorks',
+        id: 7,
+        title: 'Furniture design',
         imgSrc: sw,
         price: 250,
         lowPrice: 200,
@@ -77,6 +78,14 @@ export const services = [
         units: 1,
         description: 'Professional furniture design services using SolidWorks, specializing in 3D modeling to ensure precise and functional furniture design.'
     },
+    {
+        id: 8,
+        title: 'Furniture repair and restoration',
+        imgSrc: repair,
+        price: 150,
+        lowPrice: 50,
+        highPrice: 500,
+        units: 1,
+        description: 'Comprehensive furniture repair and restoration services, including fixing damaged tables, chairs, broken hinges, and other types of wear and tear. Restore your furniture to its original condition with precision and care.'
+    }
 ];
-
-
