@@ -22,17 +22,19 @@ const ContactInfo = () => {
                         <FaMapMarkerAlt className={styles.icon} />
                     </a>
                     <div>
-                        <h3>Our Location</h3>
-                        <p>Toronto, ON</p>
+                        <h3 className={styles.title}>Our Location</h3>
+                        <p className={styles.text}>
+                            <a href={locationUrl} target="_blank" rel="noopener noreferrer" className={styles.link}>Toronto, ON</a>
+                        </p>
                     </div>
                 </div>
 
                 <div className={styles.item}>
                     <FaEnvelope className={styles.icon} onClick={openGmail} />
                     <div>
-                        <h3>Email Address</h3>
-                        <p>
-                            <a href={`mailto:${email}`}>{email}</a>
+                        <h3 className={styles.title}>Email Address</h3>
+                        <p className={styles.text}>
+                            <a href={`mailto:${email}`} className={styles.link_mail}>{email}</a>
                         </p>
                     </div>
                 </div>
@@ -40,9 +42,9 @@ const ContactInfo = () => {
                 <div className={styles.item}>
                     <FaPhone className={styles.icon} onClick={makeCall} />
                     <div>
-                        <h3>Call us</h3>
-                        <p>
-                            <a href={`tel:${phone}`}>{phone}</a>
+                        <h3 className={styles.title}>Call us</h3>
+                        <p className={styles.text}>
+                            <a href={`tel:${phone}`} className={styles.link} onClick={makeCall}>{phone}</a>
                         </p>
                     </div>
                 </div>
