@@ -27,14 +27,13 @@
 
 .services__image_active {
   width: 100%;
-  height: calc(50%);
+  height: calc(100% - 20% - 20%);
   object-fit: cover;
   border-radius: 8px;
 }
 
 .services__name_service {
   height: auto;
-  margin: 5px;
   min-height: 48px;
   font-size: var(--font-size-named-servise);
   font-family: var(--font-family-service-title);
