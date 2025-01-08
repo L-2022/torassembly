@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaMapMarkerAlt, FaEnvelope, FaPhone } from 'react-icons/fa';
-import styles from './contactinfo.module.css';
+import styles from './contactInfo.module.css';
 
 const ContactInfo = () => {
     const locationUrl = "https://www.google.com/maps/place/Toronto,+ON, 231 Fort York Boulevard, Toronto";
@@ -16,21 +16,21 @@ const ContactInfo = () => {
     };
 
     return (
-            <div className={styles.container}>
-                <div className={styles.item}>
+            <div className={styles.wrapper}>
+                <div className={styles.wrapper__item}>
                     <a href={locationUrl} target="_blank" rel="noopener noreferrer">
-                        <FaMapMarkerAlt className={styles.icon} />
+                        <FaMapMarkerAlt className={styles.item__icon} />
                     </a>
                     <div>
-                        <h3 className={styles.title}>Our Location</h3>
+                        <h3 className={styles.title}>Location</h3>
                         <p className={styles.text}>
                             <a href={locationUrl} target="_blank" rel="noopener noreferrer" className={styles.link}>Toronto, ON</a>
                         </p>
                     </div>
                 </div>
 
-                <div className={styles.item}>
-                    <FaEnvelope className={styles.icon} onClick={openGmail} />
+                <div className={styles.wrapper__item}>
+                    <FaEnvelope className={styles.item__icon} onClick={openGmail} />
                     <div>
                         <h3 className={styles.title}>Email Address</h3>
                         <p className={styles.text}>
@@ -39,8 +39,8 @@ const ContactInfo = () => {
                     </div>
                 </div>
 
-                <div className={styles.item}>
-                    <FaPhone className={styles.icon} onClick={makeCall} />
+                <div className={styles.wrapper__item}>
+                    <FaPhone className={styles.item__icon} onClick={makeCall} />
                     <div>
                         <h3 className={styles.title}>Call us</h3>
                         <p className={styles.text}>

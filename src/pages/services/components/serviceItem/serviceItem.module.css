@@ -1,76 +1,7 @@
-.header {
-  justify-items: center;
-}
-
-.header__title {
-  font-size: 36px;
-  margin-bottom: 5px;
-  margin-top: 10px;
-  color: var(--textColor);
-}
-
-.container {
-  text-align: center;
-  display: grid;
-}
-
 .services {
   display: grid;
+  grid-template-columns: repeat(1, 1fr);
   gap: 20px;
-}
-
-.services__image {
-  width: 550px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.services__image_active {
-  width: 550px;
-  height: 50px;
-  object-fit: cover;
-  border-radius: 8px;
-  transition: clip-path 0.3s ease;
-}
-
-
-.services__name_service {
-  margin: 15px;
-  font-size: 25px;
-  color: var(--textColor);
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.services__card_active{
-  background-color: #b02424;
-
-}
-
-.details__wrapper {
-  display: flex;
-  justify-content: space-around;
-}
-
-.services__details {
-  margin: 5px;
-  overflow: hidden;
-  transition: max-height 0.3s ease, padding 0.3s ease;
-  min-height: 145px;
-  max-height: 500px;
-  display: grid;
-  align-content: space-between;
-}
-
-.details__description {
-  margin: 1px;
-  color: var(--textColor);
-  text-align: justify;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
 }
 
 .services__card {
@@ -82,16 +13,67 @@
   background-color: var(--mainbg);
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
-  max-width: 550px;
-  min-height: 250px;
+  height: 350px;
   word-wrap: break-word;
   word-break: break-word;
 }
 
+.services__image {
+  width: 100%;
+  height: calc(80%);
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.services__image_active {
+  width: 100%;
+  height: calc(50%);
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.services__name_service {
+  height: auto;
+  margin: 5px;
+  min-height: 48px;
+  font-size: var(--font-size-named-servise);
+  font-family: var(--font-family-service-title);
+  color: var(--textColor);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.details__wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.services__details {
+  margin: 5px;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  display: grid;
+  justify-items: center;
+  width: 480px;
+}
+
+.details__description {
+  font-family: var(--font-family-service-description);
+  font-size: var(--font-size-detailed-description);
+  color: var(--textColor);
+  margin: 2px;
+  text-align: justify;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
 .indicator {
   position: absolute;
-  top: 10px;
-  left: 94%;
+  top: 15px;
+  right: 20px;
   width: 20px;
   height: 20px;
   border: 2px solid rgba(70, 68, 68, 0.93);
@@ -105,62 +87,40 @@
   background-color: green;
 }
 
-@media (max-width: 480px) {
 
-}
 
-@media (min-width: 768px) {
-  .container {
-    text-align: center;
-    width: 100%;
-    display: grid;
-  }
-}
+@media (min-width: 750px) {
+  .details__description {
 
-@media (min-width: 1200px) {
-
-  .header__title {
-    font-size: 48px;
-    margin-bottom: 10px;
-    margin-top: 10px;
+    font-family: var(--font-family-service-description);
+    font-size: var(--font-size-detailed-description);
     color: var(--textColor);
+    margin: 2px;
+    text-align: justify;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
+}
+
+
+@media (max-width: 480px) {
+  .services {
+    gap: 10px;
+  }
+
+  .indicator {
+    top: 10px;
+    left: 90%;
+  }
+}
+
+
+@media (min-width: 1024px) {
   .services {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-  }
-
-  .services__card {
-    border-radius: 10px;
-    max-width: 550px;
-    min-height: 350px;
-  }
-
-  .services__image {
-    width: 550px;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 8px;
-  }
-
-  .services__image_active {
-    height: 150px;
-  }
-
-  .services__name_service {
-    margin: 5px;
-    font-size: 28px;
-  }
-
-  .services__details p {
-    margin: 5px;
-    color: var(--textColor);
-    font-size: 22px;
-    font-weight: 500;
-    text-align: justify;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
   }
 }

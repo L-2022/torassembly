@@ -1,57 +1,58 @@
 .wrapper {
-    max-width: 100%;
-    margin: 0 auto;
     display: grid;
+    gap: 25px;
     align-items: center;
     justify-content: center;
+    margin: 0 10px;
 }
 
-.services_wrapper {
+.about {
+    margin-top: 10px;
+    max-width: 1400px;
+}
+
+.services,
+.selected_services,
+.contact_info,
+.contact_us
+{
     display: grid;
     justify-content: center;
-    padding-bottom: 25px;
-}
+    grid-template-columns: minmax(150px, 500px);
 
-.contact_us {
-    padding: 25px 5px 10px;
-    background-color: transparent;
 }
-
-.selected_services {
-    padding: 25px 5px 10px;
-    background-color: transparent;
-}
-
 
 @media (max-width: 480px) {
     .wrapper {
-        margin: 0 5px;
+        margin: 0 15px;
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 600px) {
     .wrapper {
-        margin: 0 20px;
-    }
-
-    .contact_us {
-        border-radius: 10px;
-        margin-top: 20px;
-        width: 100%;
+        margin: 0 15px;
     }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1024px) {
     .wrapper {
         margin: 0 40px;
     }
 
-    .contact_us {
-        width: 100%;
+
+    .services,
+    .selected_services,
+    .contact_info,
+    .contact_us
+    {
         display: grid;
         justify-content: center;
+        grid-template-columns: 1000px;
     }
-
 }
 
-
+@media (min-width: 1440px) {
+    .wrapper {
+        margin: 0 100px;
+    }
+}

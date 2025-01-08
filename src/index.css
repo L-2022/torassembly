@@ -10,16 +10,23 @@
   vertical-align: baseline;
 }
 
+
 :root {
-  font-family: "Montserrat", serif, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  text-rendering: optimizelegibility;
+  --font-family-title: "Montserrat", serif;
+  --font-family-body: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  --font-family-service-title: "Playfair Display", serif;
+  --font-family-service-description: "Lora", serif;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --header-height: 70px;
-  --footer-height: 80px;
+  --header-height: 4.7rem;
+  --footer-height: 4.7rem;
 
-  --mainbg: rgba(92, 123, 173, 0.96);
+
+
+--mainbg: rgba(92, 123, 173, 0.96);
   --primary-oronto_light: rgb(52, 76, 185);
   --primary-oronto_black: rgb(28, 50, 169);
   --primaryWhite: #FFF;
@@ -33,7 +40,23 @@
   --secondaryGrey: #E1E1E1;
   --greyHover: #F1F1F1;
 
+  --font-size-title: 1.75rem;
+  --font-size-heading: 1.25rem;
+  --font-size-subheading: 1.125rem;
+  --font-size-body: 0.875rem;
+  --font-size-small: 0.75rem;
 
+  --font-size-named-servise: 1.5rem;
+  --font-size-detailed-description: 1.125rem;
+  --font-size-basic: 0.8125rem;
+  --font-size-caption: 0.6875rem;
+}
+
+@media (max-width: 480px) {
+  :root {
+    --font-size-named-servise: 1.2rem;
+    --font-size-detailed-description: 0.8rem;
+  }
 }
 
 .light-theme {
@@ -78,7 +101,6 @@
   --themeSwitcher: var(--primaryWhite);
 }
 
-
 html, body {
   height: 100%;
 }
@@ -92,19 +114,19 @@ p {
   color: var(--textColor);
   margin: 0;
   font-weight: 400;
-  font-size: 22px;
+  font-size: var(--font-size-body);
 }
 
 h1 {
   margin: 0;
   line-height: 1;
+  font-weight: 600;
 }
 
 h2 {
-  color: var(--textColor);
   margin: 0;
   line-height: 1;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 button {
@@ -163,14 +185,6 @@ input:-webkit-autofill:active {
 
 .bold-hover:hover {
   font-weight: 700;
-}
-
-@media (prefers-color-scheme: light) {
-
-  :root {
-    background-color: var(--primaryWhite);
-
-  }
 }
 
 ul {

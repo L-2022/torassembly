@@ -20,15 +20,11 @@ const Header = () => {
 
         const section = document.getElementById(id);
         if (section) {
-            const root = document.documentElement;
-            const headerHeight = parseInt(
-                    getComputedStyle(root).getPropertyValue('--header-height'),
-                    10
-            );
+            const header = document.querySelector('header');
+            const headerHeight = header ? header.offsetHeight : 0;
 
-            const offset = -headerHeight;
-            const sectionPosition = section.getBoundingClientRect().top + window.scrollY;
-            const offsetPosition = sectionPosition + offset;
+            const sectionPosition = section.getBoundingClientRect().top + window.scrollY - 10;
+            const offsetPosition = sectionPosition - headerHeight;
 
             window.scrollTo({
                 top: offsetPosition,
@@ -36,6 +32,7 @@ const Header = () => {
             });
         }
     };
+
 
 
     useEffect(() => {
@@ -71,7 +68,6 @@ const Header = () => {
                                 </li>
                             <li>
                                 <button
-                                        className={styles.linkButton}
                                         onClick={() => handleLinkClick('about')}
                                 >
                                     About
@@ -79,7 +75,6 @@ const Header = () => {
                             </li>
                             <li>
                                 <button
-                                        className={styles.linkButton}
                                         onClick={() => handleLinkClick('services')}
                                 >
                                     Services
@@ -87,7 +82,6 @@ const Header = () => {
                             </li>
                             <li>
                                 <button
-                                        className={styles.linkButton}
                                         onClick={() => handleLinkClick('contact')}
                                 >
                                     Contact

@@ -1,0 +1,173 @@
+@property --pos-x {
+    syntax: '<percentage>';
+    initial-value: 0%;
+    inherits: false;
+}
+
+@property --pos-y {
+    syntax: '<percentage>';
+    initial-value: 91.51%;
+    inherits: false;
+}
+
+@property --spread-x {
+    syntax: '<percentage>';
+    initial-value: 120.24%;
+    inherits: false;
+}
+
+@property --spread-y {
+    syntax: '<percentage>';
+    initial-value: 103.18%;
+    inherits: false;
+}
+
+@property --color-1 {
+    syntax: '<color>';
+    initial-value: rgba(92, 123, 173, 0.96);
+    inherits: false;
+}
+
+@property --color-2 {
+    syntax: '<color>';
+    initial-value: rgba(74, 106, 158, 0.96);
+    inherits: false;
+}
+
+@property --color-3 {
+    syntax: '<color>';
+    initial-value: rgba(55, 89, 145, 0.96);
+    inherits: false;
+}
+
+@property --color-4 {
+    syntax: '<color>';
+    initial-value: rgba(37, 71, 125, 0.96);
+    inherits: false;
+}
+
+@property --color-5 {
+    syntax: '<color>';
+    initial-value: rgba(18, 53, 107, 0.96);
+    inherits: false;
+}
+
+@property --stop-1 {
+    syntax: '<percentage>';
+    initial-value: 0%;
+    inherits: false;
+}
+
+@property --stop-2 {
+    syntax: '<percentage>';
+    initial-value: 15%;
+    inherits: false;
+}
+
+@property --stop-3 {
+    syntax: '<percentage>';
+    initial-value: 35%;
+    inherits: false;
+}
+
+@property --stop-4 {
+    syntax: '<percentage>';
+    initial-value: 70%;
+    inherits: false;
+}
+
+@property --stop-5 {
+    syntax: '<percentage>';
+    initial-value: 100%;
+    inherits: false;
+}
+
+.send_button {
+    background-color: var(--mainbg);
+    color: var(--textColor);
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.send_button {
+
+    border-radius: 5px;
+    border: none;
+    padding: 10px 20px;
+    min-width: 180px;
+    height: 40px;
+    font-size: 16px;
+    line-height: 1;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-family: inherit;
+    color: white;
+    position: relative;
+    cursor: pointer;
+    appearance: none;
+    background: radial-gradient(
+            var(--spread-x) var(--spread-y) at var(--pos-x) var(--pos-y),
+            var(--color-1) var(--stop-1),
+            var(--color-2) var(--stop-2),
+            var(--color-3) var(--stop-3),
+            var(--color-4) var(--stop-4),
+            var(--color-5) var(--stop-5)
+    );
+    text-shadow: 0 .5px 1px rgba(0, 0, 0, .75);
+    box-shadow: 0 0 0 1px inset rgba(255, 255, 255, 0.1);
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    transition:
+            --pos-x 0.5s,
+            --pos-y 0.5s,
+            --spread-x 0.5s,
+            --spread-y 0.5s,
+            --color-1 0.5s ,
+            --color-2 0.5s ,
+            --color-3 0.5s ,
+            --color-4 0.5s ,
+            --color-5 0.5s ,
+            --stop-1 0.5s ,
+            --stop-2 0.5s ,
+            --stop-3 0.5s ,
+            --stop-4 0.5s ,
+            --stop-5 0.5s;
+}
+
+.send_button:hover {
+    --pos-x: 11.14%;
+    --pos-y: 140%;
+    --spread-x: 150%;
+    --spread-y: 180.06%;
+
+    --color-1: #396455;
+    --color-2: #385d50;
+    --color-3: #45695b;
+    --color-4: #577c6f;
+    --color-5: #6c8d81;
+
+    --stop-1: 37.35%;
+    --stop-2: 61.36%;
+    --stop-3: 78.42%;
+    --stop-4: 89.52%;
+    --stop-5: 100%;
+}
+
+
+@media (min-width: 480px) {
+    .send_button {
+
+        padding: 5px 10px;
+    }
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 1200px) {
+}
+

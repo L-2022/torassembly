@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeService } from '../../../../store/services/servicesSlice.js';
 import styles from './selectedService.module.css';
+import Title from "../../../../components/title";
 
 const SelectedService = () => {
     const dispatch = useDispatch();
@@ -12,23 +13,23 @@ const SelectedService = () => {
     };
 
     if (selectedServices.length === 0) {
-        return <p className={styles.title}></p>;
+        return <></>;
     }
 
     return (
-            <div className={styles.container}>
-                <div className={styles.title}>Selected Services:</div>
+            <div className={styles.wrapper}>
+                <Title text={'Selected services'} />
                 {selectedServices.map((service) => (
-                        <div key={service.id} className={styles.service_details}>
+                        <div key={service.id} className={styles.wrapper__service_item}>
 
                             <button
-                                    className={styles.delete_service}
+                                    className={styles.service_item__delete}
                                     onClick={() => handleToggleService(service)}
                                     aria-label="Remove service"
                             >
 
                             </button>
-                            <div className={styles.service_name}>{service.title}</div>
+                            <div className={styles.service_item_title}>{service.title}</div>
                         </div>
                 ))}
             </div>

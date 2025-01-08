@@ -3,6 +3,7 @@ import { Helmet, HelmetProvider } from 'react-helmet-async'; // import from reac
 import { services } from '../../data/servicesData';
 import { servicesSchema } from '../../data/structuredData/StructuredData.js';
 import ServiceItem from "../serviceItem/index.js";
+import Title from "../../../../components/title";
 
 const ServicesList = () => {
     const schemaData = servicesSchema(services); // created JSON-LD for Schema.org
@@ -14,6 +15,7 @@ const ServicesList = () => {
                         {JSON.stringify(schemaData)}
                     </script>
                 </Helmet>
+                <Title text={ 'Services'} />
                 <ServiceItem />
             </HelmetProvider>
     );

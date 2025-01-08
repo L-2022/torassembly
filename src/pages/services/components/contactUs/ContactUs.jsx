@@ -4,6 +4,9 @@ import { sendMessage } from './sendMessage.js';
 import { clearServices } from '../../../../store/services/servicesSlice.js';
 import Modal from '../../../../components/modal';
 import styles from './contactUs.module.css';
+import Title from "../../../../components/title/index.js";
+import SendButton from '../../../../components/sendButton';
+
 
 const ContactUs = () => {
     const selectedService = useSelector((state) => state.selectedServices.selectedServices);
@@ -96,19 +99,20 @@ ${formData.email || formData.phone ? "You can contact me via " : ""}${formData.e
     };
 
     return (
-            <div className={styles.container} id="contact">
+            <>
+                <Title text={'Contact us'} />
                 <Modal
                         isOpen={isModalOpen}
                         onClose={() => setIsModalOpen(false)}
                         message={modalMessage}
                 />
-                <div className={styles.header}>
-                    <div className={styles.title}>Contact us</div>
-                </div>
-                <form className={styles.form} id="contactForm" noValidate="novalidate">
-                    <div className={styles.fields}>
+                <form className={styles.contact_us__form} id="contactForm" noValidate="novalidate">
+
+
+
+                    <div className={styles.contact_us__fields}>
                         <input
-                                className={`${styles.input} ${errorMessages ? styles.input_red : ''}`}
+                                className={`${styles.contact_us__input} ${errorMessages ? styles['contact_us__input--error'] : ''}`}
                                 id="email"
                                 type="email"
                                 placeholder="Your Email *"
@@ -116,7 +120,7 @@ ${formData.email || formData.phone ? "You can contact me via " : ""}${formData.e
                                 onChange={handleInputChange}
                         />
                         <input
-                                className={`${styles.input} ${errorMessages ? styles.input_red : ''}`}
+                                className={`${styles.contact_us__input} ${errorMessages ? styles['contact_us__input--error'] : ''}`}
                                 id="phone"
                                 type="tel"
                                 placeholder="Your Phone *"
@@ -127,26 +131,25 @@ ${formData.email || formData.phone ? "You can contact me via " : ""}${formData.e
                                 }}
                         />
                         <textarea
-                                className={`${styles.textarea} ${errorMessages ? styles.input_red : ''}`}
+                                className={`${styles.contact_us__textarea} ${errorMessages ? styles['contact_us__input--error'] : ''}`}
                                 id="message"
                                 value={formData.message}
                                 onChange={handleInputChange}
                                 placeholder="Your Message *"
                                 required
                         ></textarea>
-                    </div>
-                    <div className={styles.actions}>
-                        {errorMessages && <p className={styles.error_messages}>{errorMessages}</p>}
-                        <button
-                                className={styles.button}
-                                type="button"
+                        <div className={styles.contact_us__actions}>
+                            {<p className={styles.contact_us__error_messages}>{errorMessages || ''}</p>}
+                            <SendButton
+                                text="Send Message"
                                 onClick={handleSubmit}
-                        >
-                            Send Message
-                        </button>
+                                isDisabled={!!errorMessages}
+                        />
                     </div>
+                    </div>
+
                 </form>
-            </div>
+            </>
     );
 };
 

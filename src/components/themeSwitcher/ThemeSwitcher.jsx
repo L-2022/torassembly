@@ -13,7 +13,6 @@ const ThemeSwitcher = () => {
         localStorage.setItem('theme', 'light');
     };
 
-    // Функція для встановлення темної теми
     const setDarkTheme = () => {
         setTheme('dark');
         document.documentElement.classList.remove('light-theme');
@@ -23,13 +22,12 @@ const ThemeSwitcher = () => {
 
     const setAutomaticTheme = () => {
         const currentHour = new Date().getHours();
-        if (currentHour >= 7 && currentHour < 19) {
-            setLightTheme();
-        } else {
+        if (currentHour >= 6) {
             setDarkTheme();
+        } else {
+            setLightTheme();
         }
     };
-
 
     useEffect(() => {
         const savedTheme = localStorage.getItem('theme');

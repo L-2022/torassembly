@@ -1,11 +1,12 @@
 import React from 'react';
 import styles from './aboutPage.module.css';
+import Title from "../../../../components/title/index.js";
 
-const AboutPage = () => {
+const wrapperPage = () => {
     return (
-            <section id="about" className={styles.about_page}>
-                <h1 className={styles.about_page__title}>About TORassembly</h1>
-                <p className={styles.about_page__intro}>
+            <section className={styles.wrapper}>
+                <Title text={ 'About TORassembly'} />
+                <p className={styles.wrapper__text}>
                     Welcome to TORassembly! We specialize in professional furniture assembly, installation, and design of furniture of any complexity in Toronto.
                     Our mission is to provide fast, reliable, and high-quality services tailored to your needs.
                 </p>
@@ -13,6 +14,6 @@ const AboutPage = () => {
     );
 };
 
-export default AboutPage;
+export default wrapperPage;
 
 

@@ -1,28 +1,29 @@
-.container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.wrapper {
+    display: grid;
+    padding-bottom: 25px;
+    gap: 15px;
 }
 
-.service_details {
+.wrapper__service_item {
     display: grid;
-    grid-template-columns: 40px 1fr 50px;
+    grid-template-columns: 40px 1fr;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
     padding: 5px;
     border: 3px solid rgb(65, 112, 104);
     border-radius: 5px;
+    box-sizing: border-box;
 }
 
-.delete_service {
+.service_item__delete {
     background-color: transparent;
     border: none;
     position: relative;
     cursor: pointer;
 }
 
-.delete_service::before,
-.delete_service::after {
+.service_item__delete::before,
+.service_item__delete::after {
     content: '';
     position: absolute;
     top: 50%;
@@ -34,67 +35,24 @@
     border: 3px solid rgba(155, 35, 35, 0.93);
 }
 
-.delete_service::before {
+.service_item__delete::before {
     transform: translate(-50%, -50%) rotate(45deg);
 }
 
-.delete_service::after {
+.service_item__delete::after {
     transform: translate(-50%, -50%) rotate(-45deg);
 }
 
-.delete_service:hover::before,
-.delete_service:hover::after {
+.service_item__delete:hover::before,
+.service_item__delete:hover::after {
     background-color: #ff7a66;
 }
 
-.service_name {
-    font-size: 20px;
+.service_item_title {
+    font-size: var(--font-size-named-servise);
     color: var(--textColor);
     display: flex;
     align-items: center;
     justify-content: left;
-}
-
-.service_price {
-    text-align: right;
-    font-size: 20px;
-    color: var(--textColor);
-}
-
-.total {
-    font-size: 22px;
-    font-weight: bold;
-    text-align: right;
-    color: var(--textColor);
-}
-
-.title {
-    text-align: center;
-    color: var(--textColor);
-}
-
-
-@media (max-width: 480px) {
-    .title {
-        font-size: 24px;
-        margin-bottom: 20px;
-    }
-
-}
-
-@media (min-width: 768px) {
-    .title {
-        font-size: 24px;
-        margin-bottom: 1px;
-    }
-
-}
-
-@media (min-width: 1200px) {
-    .title {
-        font-size: 48px;
-        margin-bottom: 20px;
-    }
-
-
+    width: auto;
 }

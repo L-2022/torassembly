@@ -18,14 +18,13 @@ header {
     background-color: var(--mainbg);
 }
 
-
 main {
     background-color: var(--bgColor);
-    padding-top: calc(20px + var(--header-height));
+    padding-top: var(--header-height);
     flex-grow: 1;
 }
 
 footer {
-    height: calc(20px + var(--footer-height));
+    height: var(--footer-height);
     background-color: var(--mainbg);
 }
