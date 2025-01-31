@@ -55,7 +55,6 @@
   transition: max-height 0.3s ease, padding 0.3s ease;
   display: grid;
   justify-items: center;
-  width: 480px;
 }
 
 .details__description {
