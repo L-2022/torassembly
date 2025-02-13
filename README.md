@@ -1,8 +1,26 @@
-# React + Vite
+[![Website](https://img.shields.io/badge/Website-torassembly.ca-blue)](https://www.torassembly.ca)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**TorAssembly** is a website built to showcase [briefly describe the purpose, e.g., company services, product catalog, etc.].
 
-Currently, two official plugins are available:
+## 🚀 Technologies Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Frontend:** React, React Router, Redux Toolkit, Mantine UI
+- **Styling:** Emotion, Mantine Core
+- **Utilities:** React Helmet Async, React Icons, DOMPurify
+- **Build & Deployment:** Vite, gh-pages, dotenv
+- **Linting & Development Tools:** ESLint, Vite Plugin React
+
+## 📂 Project Setup
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/L-2022/torassembly.git
+2. Navigate to the project directory:
+   cd torassembly
+3. Install dependencies:
+  cd torassembly
+
+4. Start the development server:
+   npm run dev
+   Live Version
+   The website is available at: www.torassembly.ca
